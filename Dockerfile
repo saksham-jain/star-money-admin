@@ -22,6 +22,8 @@ RUN gem update --system
 # Use what the base image provides rather than create our own  app directory
 WORKDIR /usr/src/app/
 
+COPY Gemfile Gemfile.lock /usr/src/app/
+
 # Add a script to be executed every time the container starts.
 COPY .dockerdev/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

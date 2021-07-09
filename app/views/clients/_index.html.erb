@@ -1,0 +1,44 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row" style="justify-content: end">
+      <a href="/clients/new" class="btn btn-primary"><i class="material-icons">person</i>Create New Client</a>
+      <a href="/clients/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+    </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Clients</h4>
+            <p class="card-category"> Registered in Reliance Securities</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Client ID</th>
+                  <th>Full Name</th>
+                  <th>Mobile</th>
+                  <th>Email</th>
+                  <th>PAN</th>
+                  <th>City</th>
+                </thead>
+                <tbody>
+                  <% @clients.each do |client| %>                    
+                    <tr>
+                      <td><%= client.reliance_client_code %></td>
+                      <td><%= client.full_name %></td>
+                      <td><%= client.phone_number %></td>
+                      <td><%= client.email %></td>
+                      <td><%= client.pan %></td>
+                      <td><%= client.city %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

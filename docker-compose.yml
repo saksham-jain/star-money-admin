@@ -17,12 +17,12 @@ services:
     stdin_open: true
     tty: true
     environment:
-      - DATABASE_URL=postgres://postgres:changeme@db
-      - WEBPACKER_DEV_SERVER_HOST=webpacker
-      - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
-      - WEB_CONCURRENCY=1
-      - HISTFILE=/usr/src/app/.dockerdev/.bash_history
-      - MALLOC_ARENA_MAX=2
+      # - DATABASE_URL=postgres://postgres:changeme@db
+      # - WEBPACKER_DEV_SERVER_HOST=webpacker
+      # - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
+      # - WEB_CONCURRENCY=1
+      # - HISTFILE=/usr/src/app/.dockerdev/.bash_history
+      # - MALLOC_ARENA_MAX=2
     volumes:
       - .:/usr/src/app/:cached
       - bundle:/usr/local/bundle
