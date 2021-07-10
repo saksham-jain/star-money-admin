@@ -23,12 +23,12 @@ services:
       # - WEB_CONCURRENCY=1
       # - HISTFILE=/usr/src/app/.dockerdev/.bash_history
       # - MALLOC_ARENA_MAX=2
-    volumes:
-      - .:/usr/src/app/:cached
-      - bundle:/usr/local/bundle
-      - rails_cache:/usr/src/app/tmp/cache
-      - node_modules:/usr/src/app/node_modules
-      - packs:/usr/src/app/public/packs
+    # volumes:
+    #   - .:/usr/src/app/:cached
+    #   - bundle:/usr/local/bundle
+    #   - rails_cache:/usr/src/app/tmp/cache
+    #   - node_modules:/usr/src/app/node_modules
+    #   - packs:/usr/src/app/public/packs
     depends_on:
       - db
   # webpacker:
