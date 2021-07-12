@@ -17,18 +17,18 @@ services:
     stdin_open: true
     tty: true
     environment:
-      # - DATABASE_URL=postgres://postgres:changeme@db
-      # - WEBPACKER_DEV_SERVER_HOST=webpacker
-      # - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
-      # - WEB_CONCURRENCY=1
-      # - HISTFILE=/usr/src/app/.dockerdev/.bash_history
-      # - MALLOC_ARENA_MAX=2
-    # volumes:
-    #   - .:/usr/src/app/:cached
-    #   - bundle:/usr/local/bundle
-    #   - rails_cache:/usr/src/app/tmp/cache
-    #   - node_modules:/usr/src/app/node_modules
-    #   - packs:/usr/src/app/public/packs
+    #   - DATABASE_URL=postgres://postgres:changeme@db
+    #   - WEBPACKER_DEV_SERVER_HOST=webpacker
+    #   - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
+    #   - WEB_CONCURRENCY=1
+    #   - HISTFILE=/usr/src/app/.dockerdev/.bash_history
+    #   - MALLOC_ARENA_MAX=2
+    volumes:
+      - .:/usr/src/app/:cached
+      - bundle:/usr/local/bundle
+      - rails_cache:/usr/src/app/tmp/cache
+      - node_modules:/usr/src/app/node_modules
+      - packs:/usr/src/app/public/packs
     depends_on:
       - db
   # webpacker:
