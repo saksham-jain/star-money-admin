@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click', '.navbar-toggler', function() {
+$(document).on('click', '.navbar-toggler, .nav-item', function() {
   $toggle = $(this);
 
   if (mobile_menu_visible == 1) {
@@ -132,7 +132,6 @@ $(document).on('click', '.navbar-toggler', function() {
     mobile_menu_visible = 1;
 
   }
-
 });
 
 // activate collapse right menu when the windows is resized
@@ -370,37 +369,37 @@ md = {
 
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-      var dataWebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+      // var dataWebsiteViewsChart = {
+      //   labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+      //   series: [
+      //     [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
 
-        ]
-      };
-      var optionsWebsiteViewsChart = {
-        axisX: {
-          showGrid: false
-        },
-        low: 0,
-        high: 1000,
-        chartPadding: {
-          top: 0,
-          right: 5,
-          bottom: 0,
-          left: 0
-        }
-      };
-      var responsiveOptions = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function(value) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+      //   ]
+      // };
+      // var optionsWebsiteViewsChart = {
+      //   axisX: {
+      //     showGrid: false
+      //   },
+      //   low: 0,
+      //   high: 1000,
+      //   chartPadding: {
+      //     top: 0,
+      //     right: 5,
+      //     bottom: 0,
+      //     left: 0
+      //   }
+      // };
+      // var responsiveOptions = [
+      //   ['screen and (max-width: 640px)', {
+      //     seriesBarDistance: 5,
+      //     axisX: {
+      //       labelInterpolationFnc: function(value) {
+      //         return value[0];
+      //       }
+      //     }
+      //   }]
+      // ];
+      // var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
 
       //start animation for the Emails Subscription Chart
       md.startAnimationForBarChart(websiteViewsChart);
@@ -487,7 +486,7 @@ md = {
         mobile_menu_initialized = false;
       }
     }
-  }, 200),
+  }, 100),
 
   startAnimationForLineChart: function(chart) {
 

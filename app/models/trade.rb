@@ -12,7 +12,9 @@ class Trade < ApplicationRecord
     BUY: BUY = 0,
     SELL: SELL = 1
   }
-
+  
+  scope :todays, -> { where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) }
+  
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = ['exchange', 'actionee', 'client_id', 'client_name', 'order_type', 'transaction_type', 'scrip', 'price', 'quantity', 'time', 'date', 'platform']

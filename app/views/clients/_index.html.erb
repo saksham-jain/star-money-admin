@@ -21,6 +21,7 @@
                   <th>Email</th>
                   <th>PAN</th>
                   <th>City</th>
+                  <th>Status</th>
                 </thead>
                 <tbody>
                   <% @clients.each do |client| %>                    
@@ -31,6 +32,7 @@
                       <td><%= client.email %></td>
                       <td><%= client.pan %></td>
                       <td><%= client.city %></td>
+                      <td class= <%= client.status == 'active' ? 'text-success' : 'text-danger' %>><%= client.status.titleize %></td>
                     </tr>
                   <% end %>
                 </tbody>

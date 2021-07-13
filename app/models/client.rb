@@ -3,6 +3,11 @@ class Client < ApplicationRecord
   validates :reliance_client_code, presence: true
   has_many :trades, foreign_key: :client_id, primary_key: :reliance_client_code
 
+  enum status: {
+    active: ACTIVE = 0,
+    inactive: INACTIVE = 1
+  }
+
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
