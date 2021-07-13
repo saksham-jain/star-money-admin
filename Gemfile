@@ -35,6 +35,7 @@ gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
 gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'roo'
 
 group :development, :test do
   gem 'bundle-audit'

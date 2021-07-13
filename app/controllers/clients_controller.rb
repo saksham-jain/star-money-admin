@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  require 'roo'
   def index
     @clients = Client.all
   end
