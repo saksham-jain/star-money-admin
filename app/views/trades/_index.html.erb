@@ -1,0 +1,55 @@
+<div class="content">
+  <div class="container-fluid">
+      <div class="row" style="justify-content: end">
+        <a href="/trades/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+      </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Trades</h4>
+            <p class="card-category">Today</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Exchange</th>
+                  <th>Actionee</th>
+                  <th>ClientID</th>
+                  <th>Client Name</th>
+                  <th>Order Type</th>
+                  <th>Txn Type</th>
+                  <th>Scrip</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Time</th>
+                  <th>Date</th>
+                  <th>Platform</th>
+                </thead>
+                <tbody>
+                  <% @trades.each do |trade| %>                    
+                    <tr>
+                      <td><%= trade.exchange %></td>
+                      <td><%= trade.actionee %></td>
+                      <td><%= trade.client_id %></td>
+                      <td><%= trade.client_name %></td>
+                      <td><%= trade.order_type %></td>
+                      <td><%= trade.transaction_type %></td>
+                      <td><%= trade.scrip %></td>
+                      <td><%= trade.price %></td>
+                      <td><%= trade.quantity %></td>
+                      <td><%= trade.time %></td>
+                      <td><%= trade.date %></td>
+                      <td><%= trade.platform %></td>
+                    </tr>
+                  <% end %> 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 class Client < ApplicationRecord
   attr_accessor :full_name
+  validates :reliance_client_code, presence: true
+  has_many :trades, foreign_key: :client_id, primary_key: :reliance_client_code
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)

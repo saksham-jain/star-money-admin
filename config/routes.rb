@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     get :bulk_upload, on: :collection
     post :bulk_upload, on: :collection
   end
+  resources :trades, only: :index do
+    get :bulk_upload, on: :collection
+    post :bulk_upload, on: :collection
+  end
 end

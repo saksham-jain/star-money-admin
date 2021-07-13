@@ -1,0 +1,25 @@
+<div class="main-panel"> 
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Bulk Upload Trades</h4>
+            </div>
+            <div class="card-body">
+              <%= form_tag(bulk_upload_trades_path, multipart: true) do |f| %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= file_field_tag :file, class: 'form-control' %>
+                  </div>
+                </div>
+                <%= submit_tag "Submit", class: "btn btn-primary pull-right" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

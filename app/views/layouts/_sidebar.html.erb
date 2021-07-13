@@ -12,20 +12,20 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
+          <li class="nav-item <%= params[:controller] == 'dashboard' ? 'active' : '' %>">
             <a class="nav-link" href="/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item  <%= params[:controller] == 'clients' ? 'active' : '' %>">
             <a class="nav-link" href="/clients">
               <i class="material-icons">group</i>
               <p>Clients</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+          <li class="nav-item  <%= params[:controller] == 'trades' ? 'active' : '' %>">
+            <a class="nav-link" href="/trades">
               <i class="material-icons">pending_actions</i>
               <p>Trades</p>
             </a>
