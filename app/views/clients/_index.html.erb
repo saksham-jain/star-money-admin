@@ -13,28 +13,19 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table">
+              <table class="table" id="clients-datatable" data-source="<%= clients_path(format: :json) %>">
                 <thead class=" text-primary">
-                  <th>Client ID</th>
-                  <th>Full Name</th>
-                  <th>Mobile</th>
-                  <th>Email</th>
-                  <th>PAN</th>
-                  <th>City</th>
-                  <th>Status</th>
+                  <tr>
+                    <th>Client ID</th>
+                    <th>Full Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>PAN</th>
+                    <th>City</th>
+                    <th>Status</th>
+                  </tr>
                 </thead>
                 <tbody>
-                  <% @clients.each do |client| %>                    
-                    <tr>
-                      <td><%= client.reliance_client_code %></td>
-                      <td><%= client.full_name %></td>
-                      <td><%= client.phone_number %></td>
-                      <td><%= client.email %></td>
-                      <td><%= client.pan %></td>
-                      <td><%= client.city %></td>
-                      <td class= <%= client.status == 'active' ? 'text-success' : 'text-danger' %>><%= client.status.titleize %></td>
-                    </tr>
-                  <% end %>
                 </tbody>
               </table>
             </div>

@@ -1,7 +1,10 @@
 class ClientsController < ApplicationController
   require 'roo'
   def index
-    @clients = Client.all
+    respond_to do |format|
+      format.html
+      format.json { render json: ClientDatatable.new(params) }
+    end
   end
 
   def new

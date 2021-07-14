@@ -36,6 +36,7 @@ gem 'popper_js', '~> 1.12.9'
 gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'roo'
+gem 'ajax-datatables-rails'
 
 group :development, :test do
   gem 'bundle-audit'
