@@ -10,8 +10,8 @@
 //= require material/bootstrap-notify
 //= require material/material-dashboard
 //= require material/demo
-//= require datatable/clients.js
 //= require datatables.js
-
+//= require datatable/clients.js
+//= require datatable/trades.js
 //= require_tree .
 

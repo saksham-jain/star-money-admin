@@ -12,38 +12,24 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                  <th>Exchange</th>
-                  <th>Actionee</th>
-                  <th>ClientID</th>
-                  <th>Client Name</th>
-                  <th>Order Type</th>
-                  <th>Txn Type</th>
-                  <th>Scrip</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Time</th>
-                  <th>Date</th>
-                  <th>Platform</th>
+              <table class="table" id="trades-datatable" data-source="<%= trades_path(format: :json) %>">
+                <thead class = "text-primary">
+                  <tr>
+                    <th>Exchange</th>
+                    <th>Actionee</th>
+                    <th>ClientID</th>
+                    <th>Client Name</th>
+                    <th>Order Type</th>
+                    <th>Txn Type</th>
+                    <th>Scrip</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Platform</th>
+                  </tr>
                 </thead>
                 <tbody>
-                  <% @trades.each do |trade| %>                    
-                    <tr>
-                      <td><%= trade.exchange %></td>
-                      <td><%= trade.actionee %></td>
-                      <td><%= trade.client_id %></td>
-                      <td><%= trade.client_name %></td>
-                      <td><%= trade.order_type %></td>
-                      <td><%= trade.transaction_type %></td>
-                      <td><%= trade.scrip %></td>
-                      <td><%= trade.price %></td>
-                      <td><%= trade.quantity %></td>
-                      <td><%= trade.time %></td>
-                      <td><%= trade.date %></td>
-                      <td><%= trade.platform %></td>
-                    </tr>
-                  <% end %> 
                 </tbody>
               </table>
             </div>
