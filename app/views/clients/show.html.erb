@@ -1,0 +1,52 @@
+<body class="">
+    <div class="main-panel">
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="card card-profile">
+                <div class="card-body">
+                  <h6 class="card-category text-gray h3"><%= @client.full_name %></h6>
+                  <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr></tr>
+                  <tr>
+                    <th>Reliance ID</th>
+                    <td><%= @client.reliance_client_code %></td>
+                  </tr>
+
+                  <tr>
+                    <th>First Name</th>
+                    <td><%= @client.first_name %></td>
+                  </tr>
+
+                  <tr>
+                    <th>Email</th>
+                    <td><%= @client.email %></td>
+                  </tr>
+
+                  <tr>
+                    <th>Phone</th>
+                    <td><%= @client.phone_number %></td>
+                  </tr>
+
+                  <tr>
+                    <th>PAN</th>
+                    <td><%= @client.pan %></td>
+                  </tr>
+
+                  <tr>
+                    <th>City</th>
+                    <td><%= @client.city %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>

@@ -3,12 +3,16 @@ class ClientsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render json: ClientDatatable.new(params) }
+      format.json { render json: ClientDatatable.new(params, view_context: view_context) }
     end
   end
 
   def new
     @client = Client.new
+  end
+
+  def show
+    @client = Client.find_by(reliance_client_code: params[:id])
   end
 
   def create
@@ -29,8 +33,6 @@ class ClientsController < ApplicationController
     Client.import(params[:file])
     redirect_to clients_path
   end
-
-  def show; end
 
   private
 

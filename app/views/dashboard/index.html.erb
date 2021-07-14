@@ -14,7 +14,7 @@
                     <i class="material-icons">group</i>
                   </div>
                   <p class="card-category">Active Clients</p>
-                  <h3 class="card-title"><%= "#{@clients.active.count}/#{@clients.count}"%>
+                  <h3><%= link_to "#{@clients.active.count}/#{@clients.count}", clients_path %>
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -32,7 +32,7 @@
                     <i class="material-icons">build</i>
                   </div>
                   <p class="card-category">Trade Count</p>
-                  <h3 class="card-title"><%= @trades.count %></h3>
+                  <h3><%= link_to @trades.count, trades_path %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -45,10 +45,10 @@
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">record_voice_over</i>
+                    <i class="material-icons">perm_phone_msg</i>
                   </div>
                   <p class="card-category">Trades by call</p>
-                  <h3 class="card-title">75</h3>
+                  <h3><%= link_to @trades.where(platform: 'TWS').count, trades_path(keyword: 'TWS') %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -59,74 +59,25 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
+                <div class="card-header text-brown card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
+                    <i class="material-icons">settings_accessibility</i>
                   </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
+                  <p class="card-category">Self Trades</p>
+                  <h3><%= link_to @trades.where(platform: ['NEST_REST_TICKPRO-A', 'NEST_REST_TICKPRO']).count, trades_path(keyword: 'NEST_REST_TICKPRO') %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
+                    <i class="material-icons">date_range</i> Today
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                  <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
+            <%
+=begin%>
+ <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
@@ -370,7 +321,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
+<%
+=end%>
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
@@ -388,12 +341,74 @@
                     <tbody>
                       <% @client_wise_trade.each do |client| %>
                         <tr>
-                          <td><%= client[0]%></td>
-                          <td><%= client[1]%></td>
+                          <td><%= link_to client['client_id'], client_path(client['client_id']) %></td>
+                          <td><%= client['client_name'] %></td>
+                          <td><%= link_to client['trades'], trades_path(keyword: client['client_id']) %></td>
+                          <td><%= number_with_precision(client['total_trade_value'], precision: 2) %></td>
                         </tr>
                       <% end %>
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="col-md-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title">Top 3 Traded Scrip</h4>
+                  <p class="card-category">Todays</p>
+                </div>
+                  <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>Name</th>
+                      <th>Trades</th>
+                    </thead>
+                    <tbody>
+                      <% @top_traded_scrip.each do |scrip| %>
+                        <tr>
+                          <td><%= scrip[0] %></td>
+                          <td><%= scrip[1] %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header card-header-warning">
+                  <div class="ct-chart" id="websiteViewsChart"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Email Subscriptions</h4>
+                  <p class="card-category">Last Campaign Performance</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                  <div class="ct-chart" id="completedTasksChart"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Completed Tasks</h4>
+                  <p class="card-category">Last Campaign Performance</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                  </div>
                 </div>
               </div>
             </div>
@@ -573,45 +588,7 @@
     });
   </script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      var dataWebsiteViewsChart = {
-        labels: <%= @client_wise_trade.keys.to_json.html_safe %>,
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-        ]
-      };
-      var optionsWebsiteViewsChart = {
-        axisX: {
-          showGrid: false
-        },
-        low: 0,
-        high: 1000,
-        chartPadding: {
-          top: 0,
-          right: 5,
-          bottom: 0,
-          left: 0
-        }
-      };
-      var responsiveOptions = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function(value) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
-      
-      md.initDashboardPageCharts();
-
-      
-
-    });
+    
   </script>
 </body>
 

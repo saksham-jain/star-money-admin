@@ -1,7 +1,11 @@
 $(document).on('turbolinks:load', function() {
+  var url = new URL(window.location.href);
+  var serachKeyword = url.searchParams.get('keyword');
   $('#trades-datatable').dataTable({
     "processing": true,
     "serverSide": true,
+    "aaSorting": [[ 10, 'desc' ]],
+    "oSearch": {"sSearch": serachKeyword },
     "ajax": {
       "url": $('#trades-datatable').data('source')
     },
@@ -20,8 +24,5 @@ $(document).on('turbolinks:load', function() {
       {"data": "date"},
       {"data": "platform"}
     ]
-    // pagingType is optional, if you want full pagination controls.
-    // Check dataTables documentation to learn more about
-    // available options.
   });
 });

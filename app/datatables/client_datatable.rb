@@ -1,5 +1,13 @@
 class ClientDatatable < AjaxDatatablesRails::ActiveRecord
   self.nulls_last = true
+  delegate :link_to, to: :@view
+  delegate :client_path, to: :@view
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
+
   def view_columns
     @view_columns ||= {
       reliance_client_code: { source: "Client.reliance_client_code" },
@@ -15,7 +23,7 @@ class ClientDatatable < AjaxDatatablesRails::ActiveRecord
   def data
     records.map do |record|
       {
-        reliance_client_code: record.reliance_client_code,
+        reliance_client_code: link_to(record.reliance_client_code, client_path(record.reliance_client_code)),
         full_name: record.first_name,
         mobile: record.phone_number,
         email: record.email,
