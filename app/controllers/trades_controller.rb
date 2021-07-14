@@ -1,6 +1,9 @@
 class TradesController < ApplicationController
   def index
-    @trades = Trade.all
+    respond_to do |format|
+      format.html
+      format.json { render json: TradeDatatable.new(params) }
+    end
   end
 
   def bulk_upload
