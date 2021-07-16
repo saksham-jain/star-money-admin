@@ -37,6 +37,7 @@ gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'roo'
 gem 'ajax-datatables-rails'
+gem 'rest-client'
 
 group :development, :test do
   gem 'bundle-audit'

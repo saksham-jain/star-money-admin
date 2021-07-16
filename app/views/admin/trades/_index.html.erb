@@ -1,7 +1,7 @@
 <div class="content">
   <div class="container-fluid">
       <div class="row" style="justify-content: end">
-        <a href="/trades/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+        <a href="/admin/trades/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
       </div>  
     <div class="row">
       <div class="col-md-12">
@@ -12,7 +12,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table" id="trades-datatable" data-source="<%= trades_path(format: :json) %>">
+              <table class="table" id="trades-datatable" data-source="<%= admin_trades_path(format: :json) %>">
                 <thead class = "text-primary">
                   <tr>
                     <th>Exchange</th>

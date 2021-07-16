@@ -14,7 +14,7 @@
                     <i class="material-icons">group</i>
                   </div>
                   <p class="card-category">Active Clients</p>
-                  <h3><%= link_to "#{@clients.active.count}/#{@clients.count}", clients_path %>
+                  <h3><%= link_to "#{@clients.active.count}/#{@clients.count}", admin_clients_path %>
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -32,7 +32,7 @@
                     <i class="material-icons">build</i>
                   </div>
                   <p class="card-category">Trade Count</p>
-                  <h3><%= link_to @trades.count, trades_path %></h3>
+                  <h3><%= link_to @trades.count, admin_trades_path %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -48,7 +48,7 @@
                     <i class="material-icons">perm_phone_msg</i>
                   </div>
                   <p class="card-category">Trades by call</p>
-                  <h3><%= link_to @trades.where(platform: 'TWS').count, trades_path(keyword: 'TWS') %></h3>
+                  <h3><%= link_to @trades.where(platform: 'TWS').count, admin_trades_path(keyword: 'TWS') %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -64,7 +64,7 @@
                     <i class="material-icons">settings_accessibility</i>
                   </div>
                   <p class="card-category">Self Trades</p>
-                  <h3><%= link_to @trades.where(platform: ['NEST_REST_TICKPRO-A', 'NEST_REST_TICKPRO']).count, trades_path(keyword: 'NEST_REST_TICKPRO') %></h3>
+                  <h3><%= link_to @trades.where(platform: ['NEST_REST_TICKPRO-A', 'NEST_REST_TICKPRO']).count, admin_trades_path(keyword: 'NEST_REST_TICKPRO') %></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -341,9 +341,9 @@
                     <tbody>
                       <% @client_wise_trade.each do |client| %>
                         <tr>
-                          <td><%= link_to client['client_id'], client_path(client['client_id']) %></td>
+                          <td><%= link_to client['client_id'], admin_client_path(client['client_id']) %></td>
                           <td><%= client['client_name'] %></td>
-                          <td><%= link_to client['trades'], trades_path(keyword: client['client_id']) %></td>
+                          <td><%= link_to client['trades'], admin_trades_path(keyword: client['client_id']) %></td>
                           <td><%= number_with_precision(client['total_trade_value'], precision: 2) %></td>
                         </tr>
                       <% end %>
@@ -356,7 +356,7 @@
               <div class="col-md-12">
               <div class="card card-chart">
                 <div class="card-header card-header-info">
-                  <h4 class="card-title">Top 3 Traded Scrip</h4>
+                  <h4 class="card-title">Top <%= @top_traded_scrip.count %> Traded Scrip </h4>
                   <p class="card-category">Todays</p>
                 </div>
                   <div class="card-body table-responsive">

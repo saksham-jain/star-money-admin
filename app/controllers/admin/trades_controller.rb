@@ -1,4 +1,4 @@
-class TradesController < ApplicationController
+class Admin::TradesController < ApplicationController
   def index
     respond_to do |format|
       format.html
@@ -10,6 +10,6 @@ class TradesController < ApplicationController
     return unless params[:commit] == 'Submit'
     
     Trade.import(params[:file])
-    redirect_to trades_path
+    redirect_to admin_trades_path
   end
 end

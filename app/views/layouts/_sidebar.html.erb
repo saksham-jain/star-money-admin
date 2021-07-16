@@ -7,25 +7,25 @@
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
           STAR MONEY
           <br/>
-          <%= "#{current_admin_user.full_name}" %> <br/>
-          <%= "#{current_admin_user.role.name}" %>
+          <%= "#{current_admin_admin_user.full_name}" %> <br/>
+          <%= "#{current_admin_admin_user.role.name}" %>
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <%= params[:controller] == 'dashboard' ? 'active' : '' %>">
-            <a class="nav-link" href="/dashboard">
+          <li class="nav-item <%= params[:controller] == 'admin/dashboard' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/dashboard">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item  <%= params[:controller] == 'clients' ? 'active' : '' %>">
-            <a class="nav-link" href="/clients">
+          <li class="nav-item  <%= params[:controller] == 'admin/clients' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/clients">
               <i class="material-icons">group</i>
               <p>Clients</p>
             </a>
           </li>
-          <li class="nav-item  <%= params[:controller] == 'trades' ? 'active' : '' %>">
-            <a class="nav-link" href="/trades">
+          <li class="nav-item  <%= params[:controller] == 'admin/trades' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/trades">
               <i class="material-icons">pending_actions</i>
               <p>Trades</p>
             </a>

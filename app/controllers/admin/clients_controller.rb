@@ -1,4 +1,4 @@
-class ClientsController < ApplicationController
+class Admin::ClientsController < ApplicationController
   require 'roo'
   def index
     respond_to do |format|
@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to clients_path, notice: 'Client was successfully created.' }
+        format.html { redirect_to admin_clients_path, notice: 'Client was successfully created.' }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class ClientsController < ApplicationController
     return unless params[:commit] == 'Submit'
     
     Client.import(params[:file])
-    redirect_to clients_path
+    redirect_to admin_clients_path
   end
 
   private

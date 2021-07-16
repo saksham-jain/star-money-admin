@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class Admin::DashboardController < ApplicationController
   def index
     @trades = Trade.todays
     @client_wise_trade = ActiveRecord::Base.connection.execute(sql_raw_query_for_client_wise_trade)

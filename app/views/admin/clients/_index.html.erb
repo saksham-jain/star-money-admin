@@ -1,8 +1,8 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row" style="justify-content: end">
-      <a href="/clients/new" class="btn btn-primary"><i class="material-icons">person</i>Create New Client</a>
-      <a href="/clients/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+      <a href="/admin/clients/new" class="btn btn-primary"><i class="material-icons">person</i>Create New Client</a>
+      <a href="/admin/clients/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
     </div>  
     <div class="row">
       <div class="col-md-12">
@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table" id="clients-datatable" data-source="<%= clients_path(format: :json) %>">
+              <table class="table" id="clients-datatable" data-source="<%= admin_clients_path(format: :json) %>">
                 <thead class=" text-primary">
                   <tr>
                     <th>Client ID</th>

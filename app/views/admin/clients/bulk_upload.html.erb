@@ -5,10 +5,10 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Bulk Upload Trades</h4>
+              <h4 class="card-title">Bulk Upload Client</h4>
             </div>
             <div class="card-body">
-              <%= form_tag(bulk_upload_trades_path, multipart: true) do |f| %>
+              <%= form_tag(bulk_upload_admin_clients_path, multipart: true) do |f| %>
                 <div class="row">
                   <div class="col-md-6">
                     <%= file_field_tag :file, class: 'form-control' %>
