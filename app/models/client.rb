@@ -1,4 +1,9 @@
 class Client < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable,  and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :trackable
+         
   attr_accessor :full_name
   validates :reliance_client_code, presence: true
   has_many :trades, foreign_key: :client_id, primary_key: :reliance_client_code
@@ -15,6 +20,7 @@ class Client < ApplicationRecord
       row = Hash[[header, spreadsheet.row(i)].transpose]
       client = find_by(reliance_client_code: row["reliance_client_code"]) || new
       client.attributes = row.compact.to_hash.slice(*row.to_hash.keys)
+      client.password = 'client@123'
       client.save!
     end
   end
