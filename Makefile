@@ -18,7 +18,7 @@ attach:
 fast-push:
 	@git add .
 	@git commit -m "Fast Push"
-	@git push
+	@git push origin development
 	heroku-push
 
 heroku-push:
