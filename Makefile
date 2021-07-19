@@ -21,6 +21,6 @@ heroku-push:
 
 fast-push:
 	@git add .
-	@git commit -m "Fast Push"
-	@git push origin development
-	@heroku-push
+	@git commit --amend
+	@git push origin development --force-with-lease
+	make heroku-push

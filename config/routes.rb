@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   scope module: 'user' do
     devise_for :clients, controllers: { sessions: 'user/clients/sessions' }
     root to: 'dashboard#index'
+    get '/profile' => 'clients#show', as: :profile
     resources :dashboard, only: :index
   end
   
