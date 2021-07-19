@@ -1,0 +1,65 @@
+<body class="login-page sidebar-collapse">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
+    <div class="content">
+      <div class="container">
+        <div class="col-md-4 ml-auto mr-auto">
+          <div class="card card-login card-plain">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="card-header text-center">
+                <div class="logo-container">
+                  <img src="../assets/img/now-logo.png" alt="">
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <%= f.label :email %>
+                    <div class="input-group no-border">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-id-card-alt"></i>
+                        </span>
+                      </div>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <%= f.label :password %>
+                    <div class="input-group no-border">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-key"></i>
+                        </span>
+                      </div>
+                      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-center">
+                <%= f.submit 'Get Started', class: 'btn btn-primary btn-round btn-lg btn-block' %>
+                  <div class="pull-left">
+                    <h6>
+                      <a href="#pablo" class="link">Create Account</a>
+                    </h6>
+                  </div>
+                  <div class="pull-right">
+                    <h6>
+                      <a href="#pablo" class="link">Need Help?</a>
+                    </h6>
+                  </div>
+              </div>
+              
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'user/layouts/footer' %>
+  </div>
+</body>
+
+</html>

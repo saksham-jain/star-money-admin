@@ -1,5 +1,4 @@
 class Admin::ClientsController < ApplicationController
-  require 'roo'
   def index
     respond_to do |format|
       format.html
@@ -16,7 +15,7 @@ class Admin::ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(client_params)
+    @client = Client.new(client_params.merge(password: 'User@123'))
 
     respond_to do |format|
       if @client.save

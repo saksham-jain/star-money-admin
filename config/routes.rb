@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :clients
   namespace :admin do
     devise_for :admin_users, controllers: { sessions: 'admin/admin_users/sessions' }
     root to: 'dashboard#index'
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   scope module: 'user' do
+    devise_for :clients, controllers: { sessions: 'user/clients/sessions' }
     root to: 'dashboard#index'
     resources :dashboard, only: :index
   end

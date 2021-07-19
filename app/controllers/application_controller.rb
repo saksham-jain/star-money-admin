@@ -1,9 +1,19 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_admin_admin_user!
+  before_action :authenticate_client!, if: :user_site? 
+  before_action :authenticate_admin_admin_user!, if: :admin_site?
   layout :layout
 
   def layout
-    current_uri = request.env['PATH_INFO']
-    current_uri.include?('/admin') ? 'admin_application' : 'application'
+    admin_site? ? 'admin/layouts/admin_application' : 'user/layouts/application'
+  end
+
+  private
+
+  def admin_site?
+    request.env['PATH_INFO'].include?('/admin')
+  end
+
+  def user_site?
+    !request.env['PATH_INFO'].include?('/admin')
   end
 end
