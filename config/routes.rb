@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     get '/profile' => 'clients#show', as: :profile
     resources :dashboard, only: :index
+    resources :downloads, only: :index
   end
   
 end

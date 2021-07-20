@@ -16,7 +16,9 @@ class ClientDatatable < AjaxDatatablesRails::ActiveRecord
       email: { source: "Client.email" },
       pan: { source: "Client.pan" },
       city: { source: "Client.city" },
-      status: { source: "Client.status" }
+      status: { source: "Client.status" },
+      sign_in_count: { source: "Client.sign_in_count" },
+      last_sign_in_at: { source: "Client.last_sign_in_at" }
     }
   end
 
@@ -29,7 +31,9 @@ class ClientDatatable < AjaxDatatablesRails::ActiveRecord
         email: record.email,
         pan: record.pan,
         city: record.city,
-        status: record.status.capitalize
+        status: record.status.capitalize,
+        sign_in_count: record.sign_in_count,
+        last_sign_in_at: record.last_sign_in_at&.strftime("%-d-%-m-%y")
       }
     end
   end

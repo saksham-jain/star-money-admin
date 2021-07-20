@@ -19,7 +19,25 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
+                    <i class="material-icons text-info">warning</i>
+                    <a href="javascript:;"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">group</i>
+                  </div>
+                  <p class="card-category">Visitor Count</p>
+                  <h3><%= link_to "#{@clients.where("last_sign_in_at >=?", Time.zone.now.beginning_of_day).count}", admin_clients_path %>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-success">person</i>Today
                     <a href="javascript:;"></a>
                   </div>
                 </div>
@@ -415,6 +433,7 @@
           </div>
         </div>
       </div>
+
 
   <script>
     $(document).ready(function() {

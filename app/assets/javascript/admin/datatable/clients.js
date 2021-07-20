@@ -13,6 +13,8 @@ $(document).on('turbolinks:load', function() {
       {"data": "email"},
       {"data": "pan"},
       {"data": "city"},
+      {"data": "sign_in_count"},
+      {"data": "last_sign_in_at"},
       {"data": "status"}
     ]
     // pagingType is optional, if you want full pagination controls.

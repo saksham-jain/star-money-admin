@@ -14,6 +14,7 @@ class Trade < ApplicationRecord
   }
   
   scope :todays, -> { where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) }
+  scope :last_7_days, -> { where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_day) }
   
   def self.import(file)
     spreadsheet = open_spreadsheet(file)

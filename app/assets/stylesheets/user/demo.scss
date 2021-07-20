@@ -455,7 +455,7 @@
 }
 
 .brand .n-logo {
-  max-width: 100px;
+  max-width: 220px;
   margin-bottom: 40px;
 }
 
@@ -503,4 +503,15 @@
   .section-navbars .navbar-collapse {
     display: none !important;
   }
+}
+
+.center {
+  justify-content: center;
+  display: flex;
+}
+
+.hr-style {
+  width:50%;
+  height: 3px;
+  background: gray;
 }

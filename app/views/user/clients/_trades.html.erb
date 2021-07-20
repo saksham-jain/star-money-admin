@@ -1,0 +1,50 @@
+<div class="container">
+  <h3 class="title"><%= "Last 7 days Trades" %></h3>
+  <div class='table'>
+    <div class="row">
+      <div class="container col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Exchange</th>
+                    <th>Order Type</th>
+                    <th>Txn Type</th>
+                    <th>Scrip</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% trades.each do |trade| %>
+                    <tr>
+                      <td><%= trade.exchange %></td>
+                      <td><%= trade.order_type %></td>
+                      <td><%= trade.transaction_type %></td>
+                      <td><%= link_to trade.scrip, 'javascript::;', onclick: "getQuote('#{trade.scrip.split('-').first}')" %></td>
+                      <td><%= trade.price %></td>
+                      <td><%= trade.quantity %></td>
+                      <td><%= trade.time %></td>
+                      <td><%= trade.date %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function getQuote(scrip){
+    var iframe = document.getElementById('scembed-iframe-0');
+    iframe.src = 'https://www.gateway-tt.in/trade?id=scembed-iframe-0&orderConfig=%5B%7B%22quantity%22%3A10%2C%22ticker%22%3A%22SBIN%22%7D%5D&cardsize=big&withTT=true&withSearch=true';
+  }
+</script>

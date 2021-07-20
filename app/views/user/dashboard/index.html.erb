@@ -1,46 +1,42 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-</head>
-
 <body class="index-page sidebar-collapse">
   
   <div class="wrapper">
     <div class="page-header clear-filter" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/img/header.jpg');">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/stock-market.web');">
       </div>
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="./assets/img/now-logo.png" alt="">
-          <h1 class="h1-seo">Now UI Kit.</h1>
-          <h3>A beautiful Bootstrap 4 UI kit. Yours free.</h3>
+          <img class="n-logo" src="./assets/star-money_adobespark.png" alt="">
+          <p><%= %></p>
         </div>
-        <div filter-color='white'>
-          <h6 class="category category-absolute"> Coded by
-            <a href="https://github.com/saksham-jain" target="_blank">
-              <i class="fab fa-github-square" style= "color: darkseagreen;">Saksham Jain</i>
-            </a>
-          </h6>
+        <div class="content-center brand field" style= 'margin-top: 230px;'>
+          <div class="scroll"></div>
         </div>
       </div>
     </div>
     <div class="main">
-      <div class="section section-images">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="hero-images-container">
-                <img src="assets/img/hero-image-1.png" alt="">
-              </div>
-              <div class="hero-images-container-1">
-                <img src="assets/img/hero-image-2.png" alt="">
-              </div>
-              <div class="hero-images-container-2">
-                <img src="assets/img/hero-image-3.png" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
+      <%= render 'user/shared/tickertape' %>
+      <hr class='hr-style'>
+
+      <%= render 'user/clients/trades', trades: @trades %>
+
+      <hr class='hr-style'>
+      <h4 style= 'display: flex; justify-content: center;'>Exciting upcoming IPOs</h4>
+      <div style='padding:5px;'><iframe src="https://www.chittorgarh.com/ipo/ipo_gadgets_live.asp" style="border:none;overflow:hidden;width:100%;height:400px;"></iframe></div>
+
+      <hr class='hr-style'>
+      
+      <h4 class='center'>Charts & Charts</h4>
+      <div class='center'>
+        <iframe scrolling="no" src="https://tvc4.forexpros.com/init.php?family_prefix=tvc4&amp;pair_ID=8985&amp;interval=900&amp;plotStyle=areawidth=1150&amp;height=650&amp;lang_ID=1&amp;timezone_ID=20" style="background-color: white; color: black; padding-top: 8px;" width="95%" height="460" frameborder="0"></iframe>
       </div>
+
+      <hr class='hr-style'>
+
+      <div class="section section-neft-details mb-5" id="#neft-details-section" data-background-color="black">
+        <%= render 'neft_details' %>
+      </div>
+
       <div class="section section-basic" id="basic-elements">
         <div class="container">
           <h3 class="title">Basic Elements</h3>
@@ -1088,27 +1084,17 @@
           </div>
         </div>
       </div>
-      <div class="section section-examples" data-background-color="black">
-        <div class="space-50"></div>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col">
-              <a href="examples/landing-page.html" target="_blank">
-                <img src="assets/img/landing.jpg" alt="Image" class="img-raised">
-              </a>
-              <a href="examples/landing-page.html" class="btn btn-outline-default btn-primary btn-round">View Landing Page</a>
-            </div>
-            <div class="col">
-              <a href="examples/profile-page.html" target="_blank">
-                <img src="assets/img/profile.jpg" alt="Image" class="img-raised">
-              </a>
-              <a href="examples/profile-page.html" class="btn btn-outline-default btn-primary btn-round">View Profile Page</a>
-            </div>
+      <div class="section" data-background-color="black">
+        <div class="row justify-content-md-center sharing-area text-center">
+          <div class="text-center col-md-12 col-lg-8">
+            <h3>Thank you for supporting us!</h3>
+          </div>
+          <div class="text-center col-md-12 col-lg-8">
+            <a target="_blank" href="https://chat.whatsapp.com/JF0wOMs0OOsK6dex711osa" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Join Star Money Group">
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="section section-neft-details" id="#download-section" data-background-color="black">
-        <%= render 'neft_details' %>
       </div>
     </div>
     <!-- Sart Modal -->
@@ -1169,6 +1155,7 @@
         }, 1000);
       }
     }
+
   </script>
 </body>
 
