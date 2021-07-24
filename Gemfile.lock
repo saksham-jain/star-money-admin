@@ -94,35 +94,11 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    faraday (1.5.1)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
-      faraday-patron (~> 1.0)
-      multipart-post (>= 1.2, < 3)
-      ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday_middleware (1.0.0)
-      faraday (~> 1.0)
     ffi (1.15.3)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    google-finance-ruby-client (0.2.1)
-      faraday (>= 0.9)
-      faraday_middleware
-      hashie
-    hashie (4.1.0)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -151,7 +127,6 @@ GEM
     mini_portile2 (2.5.3)
     minitest (5.14.4)
     msgpack (1.4.2)
-    multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.7)
@@ -253,7 +228,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -274,6 +248,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -293,6 +269,9 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.1.8)
+    will_paginate-bootstrap (1.0.2)
+      will_paginate (>= 3.0.3)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -308,10 +287,10 @@ DEPENDENCIES
   byebug
   devise
   font-awesome-rails
-  google-finance-ruby-client
   jbuilder (~> 2.11)
   jquery-rails
   listen (>= 3.0.5, < 3.6)
+  nokogiri
   pg (>= 0.18, < 2.0)
   popper_js (~> 1.12.9)
   pry-rails
@@ -325,9 +304,12 @@ DEPENDENCIES
   sass-rails (~> 6)
   sprockets (~> 4)
   sprockets-rails
+  toastr-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
+  will_paginate (~> 3.1.0)
+  will_paginate-bootstrap
 
 RUBY VERSION
    ruby 3.0.1p64

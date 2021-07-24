@@ -14,6 +14,8 @@ class Client < ApplicationRecord
     inactive: INACTIVE = 1
   }
 
+  scope :full_fledged, -> { where.not(reliance_client_code: '-').and(where.not(starmf_client_code: '-').or(where.not(nj_client_code: '-'))).count }
+
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
@@ -21,7 +23,7 @@ class Client < ApplicationRecord
       row = Hash[[header, spreadsheet.row(i)].transpose]
       client = find_by(reliance_client_code: row["reliance_client_code"]) || new
       client.attributes = row.compact.to_hash.slice(*row.to_hash.keys)
-      client.password = 'client@123'
+      client.password = 'client@123' unless client.persisted?
       client.save!
     end
   end

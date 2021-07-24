@@ -1,13 +1,19 @@
 $(document).on('turbolinks:load', function() {
+  var url = new URL(window.location.href);
+  var serachKeyword = url.searchParams.get('keyword');
+  
   $('#clients-datatable').dataTable({
     "processing": true,
     "serverSide": true,
+    "oSearch": {"sSearch": serachKeyword },
     "ajax": {
       "url": $('#clients-datatable').data('source')
     },
     "pagingType": "full_numbers",
     "columns": [
       {"data": "reliance_client_code"},
+      {"data": "starmf_client_code"},
+      {"data": "nj_client_code"},
       {"data": "full_name"},
       {"data": "mobile"},
       {"data": "email"},

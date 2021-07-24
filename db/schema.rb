@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_115034) do
+ActiveRecord::Schema.define(version: 2021_07_25_130010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,25 @@ ActiveRecord::Schema.define(version: 2021_07_16_115034) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "starmf_client_code"
+    t.string "nj_client_code"
+    t.string "reliance_client_id"
+    t.string "demat_number"
+    t.string "reliance_bank_name"
+    t.string "reliance_bank_account_number"
+    t.boolean "ipo"
+    t.string "user_id"
     t.index ["reliance_client_code", "email"], name: "index_clients_on_reliance_client_code_and_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.string "reason"
+    t.string "full_name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|

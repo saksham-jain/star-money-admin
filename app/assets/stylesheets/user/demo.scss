@@ -71,12 +71,26 @@
   border-radius: 3px;
 }
 
-#pagination-row .pagination-container {
-  height: 100%;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
+.previous_page{
+  font-size: 15px;
 }
+
+.current {
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pagination a{
+  font-size: 15px;
+  padding-right: 10px;
+}
+// #pagination-row .pagination-container {
+//   height: 100%;
+//   max-height: 100%;
+//   display: flex;
+//   align-items: center;
+// }
 
 #icons-row i.now-ui-icons {
   font-size: 30px;
@@ -455,8 +469,8 @@
 }
 
 .brand .n-logo {
-  max-width: 220px;
-  margin-bottom: 40px;
+  max-width: 200px;
+  margin-bottom: 15px;
 }
 
 .invision-logo {
@@ -515,3 +529,8 @@
   height: 3px;
   background: gray;
 }
+
+.bold {
+  font-weight: bolder;
+}
+

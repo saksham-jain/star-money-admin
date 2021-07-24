@@ -38,6 +38,10 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'roo'
 gem 'ajax-datatables-rails'
 gem 'rest-client'
+gem 'toastr-rails'
+gem 'nokogiri'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'bundle-audit'

@@ -1,5 +1,12 @@
 class TradeDatatable < AjaxDatatablesRails::ActiveRecord
   self.nulls_last = true
+  delegate :link_to, to: :@view
+  delegate :admin_clients_path, to: :@view
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
 
   def view_columns
     @view_columns ||= {
@@ -23,7 +30,7 @@ class TradeDatatable < AjaxDatatablesRails::ActiveRecord
       {
         exchange: record.exchange,
         actionee: record.actionee,
-        client_id: record.client_id,
+        client_id: link_to(record.client_id, admin_clients_path(keyword: record.client_id)),
         client_name: record.client_name,
         order_type: record.order_type,
         txn_type: record.transaction_type,

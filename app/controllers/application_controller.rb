@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_client!, if: :user_site? 
+  # before_action :authenticate_client!, if: :user_site? 
   before_action :authenticate_admin_admin_user!, if: :admin_site?
   layout :layout
 

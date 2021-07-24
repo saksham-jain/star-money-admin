@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function() {
   var url = new URL(window.location.href);
   var serachKeyword = url.searchParams.get('keyword');
+  
   $('#trades-datatable').dataTable({
     "processing": true,
     "serverSide": true,

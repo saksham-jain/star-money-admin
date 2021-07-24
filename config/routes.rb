@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :bulk_upload, on: :collection
       post :bulk_upload, on: :collection
     end
+    resources :queries
   end
 
   scope module: 'user' do
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get '/profile' => 'clients#show', as: :profile
     resources :dashboard, only: :index
     resources :downloads, only: :index
+    resources :queries
   end
   
 end

@@ -3,7 +3,7 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-6">
         <div class="card card-profile">
           <div class="card-body">
             <h6 class="card-category text-gray h3"><%= @client.full_name %></h6>
@@ -13,8 +13,23 @@
                   <tbody>
                     <tr></tr>
                     <tr>
-                      <th>Reliance ID</th>
+                      <th>Reliance Client Code</th>
                       <td><%= @client.reliance_client_code %></td>
+                    </tr>
+
+                    <tr>
+                      <th>Reliance User ID</th>
+                      <td><%= @client.reliance_client_id %></td>
+                    </tr>
+
+                    <tr>
+                      <th>BseStarMF Client Code</th>
+                      <td><%= @client.starmf_client_code %></td>
+                    </tr>
+
+                    <tr>
+                      <th>NJ Client Code</th>
+                      <td><%= @client.nj_client_code %></td>
                     </tr>
 
                     <tr>
@@ -48,35 +63,77 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div class="card card-profile">
-          <div class="card-body">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <tbody>
-                    <tr></tr>
-                    <tr>
-                      <th>Sign in Count</th>
-                      <td><%= @client.sign_in_count %></td>
-                    </tr>
+      <div class='col-md-6'>
+        <div class='row'>
+          <div class="col-md-12">
+            <div class="card card-profile">
+              <div class="card-body">
+                <h6 class="card-category text-gray h3">Recent Activities</h6>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr></tr>
+                        <tr>
+                          <th>Sign in Count</th>
+                          <td><%= @client.sign_in_count %></td>
+                        </tr>
 
-                    <tr>
-                      <th>Last Login at</th>
-                      <td><%= format_datetime(@client.last_sign_in_at) || '-' %></td>
-                    </tr>
-                    <% @last_trade = @client.trades.last %>
-                    <tr>
-                      <th>Last Trade</th>
-                      <td><%= @last_trade.scrip %></td>
-                    </tr>
+                        <tr>
+                          <th>Last Login at</th>
+                          <td><%= format_datetime(@client.last_sign_in_at) || '-' %></td>
+                        </tr>
+                        <% @last_trade = @client.trades.last %>
+                        <tr>
+                          <th>Last Trade</th>
+                          <td><%= @last_trade&.scrip || '-' %></td>
+                        </tr>
 
-                    <tr>
-                      <th>Last Trade Value</th>
-                      <td><%= @last_trade.quantity * @last_trade.price %></td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <tr>
+                          <th>Last Trade Value</th>
+                          <td><%= (@last_trade&.quantity || 0) * (@last_trade&.price || 0) %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="col-md-12">
+            <div class="card card-profile">
+              <div class="card-body">
+                <h6 class="card-category text-gray h3">Extra Details</h6>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr></tr>
+                        <tr>
+                          <th>Demat Number</th>
+                          <td><%= @client.demat_number || '-' %></td>
+                        </tr>
+
+                        <tr>
+                          <th>Reliance Bank Name</th>
+                          <td><%= @client.reliance_bank_name || '-' %></td>
+                        </tr>
+                        
+                        <tr>
+                          <th>Reliance Bank Account Number</th>
+                          <td><%= @client.reliance_bank_account_number || '-' %></td>
+                        </tr>
+
+                        <tr>
+                          <th>Interested in IPO?</th>
+                          <td><%= @client.ipo? ? 'Yes' : 'No' %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
