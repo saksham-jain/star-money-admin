@@ -23,7 +23,18 @@
       </div>
     </div>
     <div class="main">
-      <%= render 'top_gainer', top_gainers: @top_gainers %>
+
+      <div class="container mt-3">
+        <div class="row">
+          <div id='top-gainers' style='display: contents;'>
+            <%= render 'top_gainer', top_gainers: @top_gainers, cached: true %>
+          </div>  
+          <div style='display: contents;'>
+            <%= render 'top_traded_scrip', top_traded_scrips: @top_traded_scrips %>
+          </div>
+        </div>
+      </div>
+
       <%= render 'ipo' %>
       <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
       <%= render 'user/shared/tickertape' %>

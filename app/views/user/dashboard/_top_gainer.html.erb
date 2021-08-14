@@ -1,56 +1,31 @@
-<div class="container mt-3">
-  <div class='table'>
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        <div class="card">
-          <div class="card-header card-header-info">
-            <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Nifty 100 Top Gainers</h5>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Scrip</th>
-                    <th>Price</th>
-                    <th>Change</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% top_gainers.each do |scrip| %>
-                    <tr>
-                      <td><%= scrip[:name] %></td>
-                      <td><%= scrip[:price] %></td>
-                      <td class='text-success'><%= scrip[:change] %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
-            <div class='paginate'>
-              <%= will_paginate @top_gainers, param_name: 'top_gainers_page', previous_label: 'Previous', next_label: 'Next' %>
-            </div>
-          </div>
-        </div>
+<div class="col-lg-6 col-sm-12 col-md-12">
+  <div class="card">
+    <div class="card-header card-header-info">
+      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Nifty 100 Top Gainers</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Scrip</th>
+              <th>Price</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% top_gainers.each do |scrip| %>
+              <tr>
+                <td><%= scrip[:name] %></td>
+                <td><%= scrip[:price] %></td>
+                <td class='text-success'><%= scrip[:change] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
-      <div class="col-lg-6">
-        <div class="col-md-6 col-sm-10">
-        <div class="card card-chart">
-          <div class="card-header card-header-info">
-            <h5 class="mt-3 ml-4 text-info mb-0 font-italic font-weight-bold">Todays Top <%= @top_traded_scrip.count %> Traded Scrip in Star Money</h5>
-          </div>
-            <div class="card-body table-responsive">
-            <table class="table table-hover">
-              <tbody>
-                <% @top_traded_scrip.each do |scrip| %>
-                  <tr>
-                    <td><%= scrip[0] %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class='paginate'>
+        <%= will_paginate top_gainers, param_name: 'top_gainers_page', previous_label: 'Previous', next_label: 'Next' %>
       </div>
     </div>
   </div>

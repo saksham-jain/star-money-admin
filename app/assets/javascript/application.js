@@ -15,3 +15,7 @@ toastr.options = {
       warning: 'alert-warning'
   }
 }
+
+$(document).on('turbolinks:load', function(){
+  $('.pagination > a').attr('data-remote', 'true');
+})
