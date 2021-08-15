@@ -1,7 +1,7 @@
 <div class="col-lg-6 col-sm-12 col-md-12">
   <div class="card">
     <div class="card-header card-header-info">
-      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">BSE 500 Top Gainers</h5>
+      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">BSE 500 Top Losers</h5>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -14,17 +14,18 @@
             </tr>
           </thead>
           <tbody>
-            <% top_gainers.each do |scrip| %>
+            <% top_losers.each do |scrip| %>
               <tr>
                 <td><%= scrip[:name] %></td>
                 <td><%= scrip[:ltp] %></td>
-                <td class='text-success'><%= scrip[:change] %></td>
+                <td class='text-danger'><%= scrip[:change] %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
-      <%= will_paginate top_gainers, param_name: 'top_gainers_page', previous_label: 'Previous', next_label: 'Next' %>
+      <%= will_paginate top_losers, param_name: 'top_losers_page', previous_label: 'Previous', next_label: 'Next' %>
+      </div> 
     </div>
   </div>
 </div>

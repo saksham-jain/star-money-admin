@@ -22,19 +22,24 @@
         </div>
       </div>
     </div>
-    <div class="main">
+    <div class="main container">
 
       <div class="container mt-3">
         <div class="row">
           <div id='top-gainers' style='display: contents;'>
-            <%= render 'top_gainer', top_gainers: @top_gainers, cached: true %>
+            <%= render 'top_gainer', top_gainers: @top_gainers %>
           </div>  
-          <div style='display: contents;'>
-            <%= render 'top_traded_scrip', top_traded_scrips: @top_traded_scrips %>
-          </div>
+          <div id='top-losers' style='display: contents;'>
+            <%= render 'top_loser', top_losers: @top_losers %>
+          </div> 
+        </div>
+        <hr class='hr-style'>
+
+        <div class="row">
+          <%= render 'top_traded_scrip', top_traded_scrips: @top_traded_scrips %>
         </div>
       </div>
-
+      <hr class='hr-style'>
       <%= render 'ipo' %>
       <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
       <%= render 'user/shared/tickertape' %>
