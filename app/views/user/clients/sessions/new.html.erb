@@ -1,65 +1,55 @@
-<body class="login-page sidebar-collapse">
-  <div class="page-header login-page-header clear-filter" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
-    <div class="content">
-      <div class="container">
-        <div class="col-md-4 ml-auto mr-auto">
-          <div class="card card-login card-plain">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="card-header text-center">
-                <div class="">
-                  <img src="../assets/star-money_adobespark.png" width='100px'>
+<body class=" sidebar-collapse">
+  <div class="login-page sidebar-collapse">
+    <div class="page-header login-page-header clear-filter" style="position: absolute;height: 100%;width: 100%;" %>">
+      <div class="page-header-image" style="background-image:url(../assets/login7.jpg)"></div>
+      <div class="content">
+        <div class="card card-login card-plain">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="card-body" style='margin-top:5vh'>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.label :reliance_client_code, 'User ID' %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-id-card-alt"></i>
+                      </span>
+                    </div>
+                    <%= f.text_field :reliance_client_code, autofocus: true, autocomplete: "reliance_client_code", class: 'form-control' %>
+                  </div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <%= f.label :reliance_client_code, 'User ID' %>
-                    <div class="input-group no-border">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="fas fa-id-card-alt"></i>
-                        </span>
-                      </div>
-                      <%= f.text_field :reliance_client_code, autofocus: true, autocomplete: "reliance_client_code", class: 'form-control' %>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.label :password %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                      </span>
                     </div>
+                    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <%= f.label :password %>
-                    <div class="input-group no-border">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="fas fa-key"></i>
-                        </span>
-                      </div>
-                      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer text-center">
-                <%= f.submit 'Get Started', class: 'btn btn-primary btn-round btn-lg btn-block' %>
-                  <div class="pull-left">
-                    <h6>
-                      <a href="#pablo" class="link">Create Account</a>
-                    </h6>
-                  </div>
-                  <div class="pull-right">
-                    <h6>
-                      <a href="#pablo" class="link">Need Help?</a>
-                    </h6>
-                  </div>
               </div>
-              
-            <% end %>
+              <div class="card-footer text-center">
+              <%= f.submit 'Get Started', class: 'btn btn-primary btn-round btn-lg btn-block' %>
+                <div class="pull-left">
+                  <h6>
+                    <a href="#pablo" class="link">Create Account</a>
+                  </h6>
+                </div>
+                <div class="pull-right">
+                  <h6>
+                    <a href="#pablo" class="link">Need Help?</a>
+                  </h6>
+                </div>
             </div>
+          <% end %>
           </div>
         </div>
       </div>
+      <%= render 'user/layouts/footer', background_color: '' %>
     </div>
-    <%= render 'user/layouts/footer', background_color: '' %>
   </div>
 </body>
-
-</html>

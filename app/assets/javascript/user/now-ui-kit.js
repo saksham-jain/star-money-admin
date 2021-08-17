@@ -33,7 +33,7 @@ var nowuiKit,
 
 $(document).ready(function() {
   //  Activate the Tooltips
-  $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
+  // $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
 
   // Activate Popovers and set color for popovers
   $('[data-toggle="popover"]').each(function() {
@@ -81,9 +81,9 @@ $(document).ready(function() {
   }
 
   // Activate Carousel
-  $('.carousel').carousel({
-    interval: 4000
-  });
+  // $('.carousel').carousel({
+  //   interval: 4000
+  // });
 
   $('.date-picker').each(function() {
     $(this).datepicker({

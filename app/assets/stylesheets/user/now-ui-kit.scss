@@ -32,6 +32,10 @@
   max-height: 10000px !important;
 }
 
+.navbar-height {
+  height: 72px;
+}
+
 
 .bootstrap-switch {
   display: inline-block;
@@ -4568,7 +4572,7 @@ Created using IcoMoon - icomoon.io
   text-transform: uppercase;
   padding: 0.5rem 0.7rem;
   line-height: 1.625rem;
-  color: rgba(120, 105, 105, 0.871);
+  color: rgba(17, 16, 16, 0.871);
   font-weight: 550;
 }
 
@@ -4656,7 +4660,7 @@ Created using IcoMoon - icomoon.io
   background-color: transparent !important;
   box-shadow: none;
   color: #FFFFFF;
-  padding-top: 20px !important;
+  // padding-top: -20px !important;
 }
 
 .navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item):not(.btn) {
@@ -4692,7 +4696,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .bg-info {
-  background-color: #2CA8FF !important;
+  background-color: #3cbbd8 !important;
 }
 
 .bg-success {
