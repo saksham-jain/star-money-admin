@@ -4,6 +4,6 @@ module ApplicationHelper
   end
   
   def contact_reasons
-    ['New Account Opening', 'Fund Transfer']
+    ['Cannot Login/Signup', 'Demat Account Opening', 'New SIP/Mutual Fund', 'Fund Transfer', 'Site Related Issue', 'Other']
   end
 end

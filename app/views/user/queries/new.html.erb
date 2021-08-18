@@ -1,105 +1,113 @@
-<body class="index-page sidebar-collapse">
-  <div class="section section-signup" style="background-image: url('/assets/contact-us.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
-    <div class="row">
-      <div class="col-lg-5" style='padding: 40px 40px 100px; padding-left: 10%'>
-        <div class="card card-signup" style="border-radius: 35px; background: floralwhite">
-          <%= form_for(@query, url: queries_path) do |f| %>
-            <div class="card-header text-center">
-              <h3 class="card-title title-up">Contact Us / Query Box</h3>
-            </div>
-            <div class="input-group" style='padding: 0px 20px 0px 20px;'>
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fas fa-question" style= "padding-right: 20px;"></i>
-                </span>
+  <body class="index-page sidebar-collapse">
+    <div class="section section-signup" style="background-image: url('/assets/contact-us.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+      <div class="row">
+        <div class="col-lg-5" style='padding: 40px 40px 100px; padding-left: 10%'>
+          <div class="card card-signup" style="border-radius: 35px; background: floralwhite">
+            <%= form_for(@query, url: queries_path) do |f| %>
+              <div class="card-header text-center">
+                <h3 class="card-title title-up">Contact Us / Query Box</h3>
               </div>
-              <%= f.select :reason, contact_reasons, { include_blank: 'Reason' }, { class: 'form-control' } %>
-            </div>
-            <div class="input-group" style='padding: 0px 20px 0px 20px;'>
-              <div class="input-group-prepend">
-                <span class="input-group-text" >
-                  <i class="fas fa-user" style= "padding-right: 20px;"></i>
-                </span>
+              <div class="input-group" style='padding: 0px 20px 0px 20px;'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-question" style= "padding-right: 20px;"></i>
+                  </span>
+                </div>
+                <%= f.select :reason, contact_reasons, { include_blank: 'Reason' }, { class: 'form-control', required: true } %>
               </div>
-              <%= f.text_field :full_name, placeholder: 'Full Name', class: 'form-control' %>
-            </div>
-            <div class="input-group" style='padding: 0px 20px 0px 20px;'>
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fas fa-phone" style= "padding-right: 20px;"></i>
-                </span>
+              <div class="input-group" style='padding: 0px 20px 0px 20px;'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text" >
+                    <i class="fas fa-file-text" style= "padding-right: 20px;"></i>
+                  </span>
+                </div>
+                <%= f.text_area :description, rows: 2, placeholder: 'Description', class: 'form-control', style: 'border-radius: 0px 20px 20px 0px; border: 1px solid #E3E3E3', required: true %>
               </div>
-              <%= f.text_field :phone, placeholder: 'Phone', class: 'form-control' %>
-            </div>
-            <div class="input-group" style='padding: 0px 20px 0px 20px;'>
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fas fa-at" style= "padding-right: 20px;"></i>
-                </span>
+              <div class="input-group" style='padding: 0px 20px 0px 20px;'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text" >
+                    <i class="fas fa-user" style= "padding-right: 20px;"></i>
+                  </span>
+                </div>
+                <%= f.text_field :full_name, placeholder: 'Full Name', class: 'form-control', required: true %>
               </div>
-              <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
-            </div>
-            <div class='center'>
-              <%= f.submit "Submit", class: "btn btn-neutral btn-round btn-lg" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-lg-6 offset-sm-1" style='padding: 40px'>
-        <div class='row'>
-          <div class="col-sm-2 col-3">
-            <img src="/assets/office-address.png" alt="Thumbnail Image" class="rounded-circle img-raised">
-          </div>
-          <div class="col-sm-5 col-9">
-            <p class="" style='color: black; font-weight: bold; font-weight: bold;'>Star Money, khandekar colony, near vandana hotel, BINA 470113 </p>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div class='row' style='border: 3px black'>
-          <div class="col-sm-2 col-3">
-            <img src="/assets/employee.png" alt="Thumbnail Image" class="rounded-circle img-raised">
-          </div>
-          <div class="col-sm-3 col-7">
-            <div class='row'>
-              <div class="col-sm-12 col-7">
-                <p style='color: black; font-weight: bold;'>Sanjay Sen</p>
+              <div class="input-group" style='padding: 0px 20px 0px 20px;'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-phone" style= "padding-right: 20px;"></i>
+                  </span>
+                </div>
+                <%= f.text_field :phone, placeholder: 'Phone', class: 'form-control', required: true %>
               </div>
-              <div class="col-sm-3 col-4">
-                <p style='color: black; font-weight: normal;'>9575270852</p>
+              <div class="input-group" style='padding: 0px 20px 0px 20px;'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-at" style= "padding-right: 20px;"></i>
+                  </span>
+                </div>
+                <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
               </div>
-            </div>
-            <div class='row'>
-              <div class="col-sm-3 col-7">
-                <p style='color: black; font-weight: normal;'>sanjay.sen1987@gmail.com</p>
+              <div class='center'>
+                <%= f.submit "Submit", class: "btn btn-neutral btn-round btn-lg" %>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
-        <br/>
-        <br/>
-        <div class='row'>
-          <div class="col-sm-2 col-3 pt-4">
-            <img src="/assets/office1.png" alt="Thumbnail Image" class="rounded-circle img-raised">
+        <div class="col-lg-6 offset-sm-1" style='padding: 40px'>
+          <div class='row'>
+            <div class="col-sm-2 col-3">
+              <img src="/assets/office-address.png" alt="Thumbnail Image" class="rounded-circle img-raised">
+            </div>
+            <div class="col-sm-5 col-9">
+              <p class="" style='color: black; font-weight: bold; font-weight: bold;'>Star Money, khandekar colony, near vandana hotel, BINA 470113 </p>
+            </div>
           </div>
-          <div class="col-sm-9 col-7">
-            <div class='row'>
-              <div class="col-sm-6 col-6">
-                <p style='color: black; font-weight: bold;'>Office</p>
+          <br/>
+          <br/>
+          <div class='row' style='border: 3px black'>
+            <div class="col-sm-2 col-3">
+              <img src="/assets/employee.png" alt="Thumbnail Image" class="rounded-circle img-raised">
+            </div>
+            <div class="col-sm-3 col-7">
+              <div class='row'>
+                <div class="col-sm-12 col-7">
+                  <p style='color: black; font-weight: bold;'>Sanjay Sen</p>
+                </div>
+                <div class="col-sm-3 col-4">
+                  <p style='color: black; font-weight: normal;'>9575270852</p>
+                </div>
               </div>
-              <div class="col-sm-7 col-4">
-                <p style='color: black; font-weight: normal;'>9770093777, 07580223777, 075802224563</p>
+              <div class='row'>
+                <div class="col-sm-3 col-7">
+                  <p style='color: black; font-weight: normal;'>sanjay.sen1987@gmail.com</p>
+                </div>
               </div>
             </div>
-            <div class='row'>
-              <div class="col-sm-3 col-7">
-                <p style='color: black; font-weight: normal;'>starmoneybina@gmail.com</p>
+          </div>
+          <br/>
+          <br/>
+          <div class='row'>
+            <div class="col-sm-2 col-3 pt-4">
+              <img src="/assets/office1.png" alt="Thumbnail Image" class="rounded-circle img-raised">
+            </div>
+            <div class="col-sm-9 col-7">
+              <div class='row'>
+                <div class="col-sm-6 col-6">
+                  <p style='color: black; font-weight: bold;'>Office</p>
+                </div>
+                <div class="col-sm-7 col-4">
+                  <p style='color: black; font-weight: normal;'>9770093777, 07580223777, 075802224563</p>
+                </div>
+              </div>
+              <div class='row'>
+                <div class="col-sm-3 col-7">
+                  <p style='color: black; font-weight: normal;'>starmoneybina@gmail.com</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <%= render 'user/layouts/footer', background_color: 'black' %>
-</body>
+    <%= render 'user/layouts/footer', background_color: 'black' %>
+  </body>

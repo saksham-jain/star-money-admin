@@ -10,6 +10,6 @@ class User::QueriesController < ApplicationController
   private
 
   def query_params
-    params.require(:query).permit(:reason, :full_name, :email, :phone)
+    params.require(:query).permit(:reason, :full_name, :email, :phone, :description)
   end
 end
