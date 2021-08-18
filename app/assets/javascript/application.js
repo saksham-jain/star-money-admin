@@ -8,6 +8,8 @@
 
 toastr.options = {
   toastClass: 'alert',
+  timeOut: 8000,
+  positionClass: "toast-bottom-right",
   iconClasses: {
       error: 'alert-error',
       info: 'alert-info',
