@@ -7,11 +7,18 @@ class User::Clients::SessionsController < Devise::SessionsController
   # def new
   #   super
   # end
-
+  
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    client = Client.find_by(reliance_client_code: params[:client][:reliance_client_code])
+    redirect_to new_client_session_path, flash: { warning: 'Please enter valid Client Id' } and return unless client
+
+    unless Client.find_by(reliance_client_code: params[:client][:reliance_client_code]).activated?
+      flash[:warning] = 'You have not signed up. Please SignUp before login'
+      redirect_to new_client_session_path and return
+    end
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
