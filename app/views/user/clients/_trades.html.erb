@@ -1,8 +1,9 @@
 <div class="container">
-  <h3 class="title"><%= "Last 7 days Trades" %></h3>
+  <h3 class='center bold' id='self-analyze'>Last 60 days Trades</h3>
   <div class='table'>
     <div class="row">
       <div class="container col-12">
+        <h6 class='text-success'>* Tip - Click on Scrip name to get latest Price</h6>
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
@@ -39,12 +40,18 @@
         </div>
       </div>
     </div>
+    <%= will_paginate trades %>
   </div>
 </div>
+<%= render 'user/shared/tickertape' %>
 
 <script>
+  function detectMob() {
+    return ( ( window.innerWidth <= 450 ) && ( window.innerHeight <= 800 ) );
+  }
   function getQuote(scrip){
     var iframe = document.getElementById('scembed-iframe-0');
-    iframe.src = 'https://www.gateway-tt.in/trade?id=scembed-iframe-0&orderConfig=%5B%7B%22quantity%22%3A10%2C%22ticker%22%3A%22SBIN%22%7D%5D&cardsize=big&withTT=true&withSearch=true';
+    var cardSize = detectMob() ? 'small' : 'big'
+    iframe.src = `https://www.gateway-tt.in/trade?id=scembed-iframe-0&orderConfig=%5B%7B%22quantity%22%3A10%2C%22ticker%22%3A%22${scrip}%22%7D%5D&cardsize=${cardSize}&withTT=false&withSearch=true'`
   }
 </script>

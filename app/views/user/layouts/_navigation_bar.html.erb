@@ -5,7 +5,7 @@
       </div>
       <div class="container">
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/profile" rel="tooltip" title="You are awesome" data-placement="bottom">
+          <a class="navbar-brand" href="/profile" rel="tooltip" title="You are awesome" data-placement="bottom" data-turbolinks="false">
             <h5>
               Hi <i class="fa fa-smile-o" aria-hidden="true"></i>
               <%= current_client.first_name %>
@@ -20,19 +20,29 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to '<i class="fa fa-home fa-lg"></i> HOME'.html_safe, '/', class: 'nav-link' %>
+              <%= link_to '<img src="/assets/home.webp" width= 30px> HOME'.html_safe, '/', class: 'nav-link' %>
             </li>
-            <li class="nav-item">
+            <%
+=begin%>
+ <li class="nav-item">
               <%= link_to '<i class="fas fa-file-invoice-dollar fa-lg"></i> NEFT DETAILS'.html_safe, '', class: 'nav-link' %>
+            </li> 
+<%
+=end%>
+            <li class="nav-item">
+              <%= link_to '<img src="/assets/ipo.png" width= 25px>  IPOs'.html_safe, '/', class: 'nav-link nav-scroll', id: 'nav-ipo', data: '#ipo' %>
             </li>
             <li class="nav-item">
-              <%= link_to '<i class="fa fa-download fa-lg"></i> Downloads'.html_safe, downloads_path, class: 'nav-link' %>
+              <%= link_to '<img src="/assets/analyze.png" width= 25px> Self Analyze'.html_safe, '/', class: 'nav-link nav-scroll', data: '#self-analyze' %>
             </li>
             <li class="nav-item">
-              <%= link_to '<i class="fa fa-envelope fa-lg"></i> Contact Us / Query Box'.html_safe, new_query_path, class: 'nav-link' %>
+              <%= link_to '<img src="/assets/download.png" width= 25px> Downloads'.html_safe, downloads_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to '<i class="fas fa-sign-out-alt"></i> Log out'.html_safe, destroy_client_session_path, method: :delete, class: 'nav-link' %>
+              <%= link_to '<img src="/assets/contact-us.png" width= 25px> Contact Us / Query Box'.html_safe, new_query_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_client_session_path, method: :delete, class: 'nav-link' %>
             </li>
           </ul>
         </div>

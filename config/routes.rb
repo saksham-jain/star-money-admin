@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     devise_for :clients, controllers: { sessions: 'user/clients/sessions' }
     root to: 'dashboard#index'
     get '/profile' => 'clients#show', as: :profile
-    get '/create_account' => 'clients#activate', as: :create_account
+    get '/activate' => 'clients#activate', as: :activate
+    get '/confirm_activate' => 'clients#activate', as: :get_confirm_activate
+    post '/confirm_activate' => 'clients#confirm_activate', as: :confirm_activate
     resources :dashboard, only: :index
     resources :downloads, only: :index
     resources :queries

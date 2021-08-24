@@ -64,37 +64,6 @@
         <%= render 'user/clients/trades', trades: @trades %>
       </div>
     </div>
-    <footer class="footer footer-default">
-      <div class=" container ">
-        <nav>
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Star Money
-              </a>
-            </li>
-            <li>
-              <a href="http://presentation.creative-tim.com">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright" id="copyright">
-          &copy;
-          <script>
-            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Created by
-          <a href="https://github.com/saksham-jain" target="_blank">Saksham Jain</a>.
-        </div>
-      </div>
-    </footer>
+    <%= render 'user/layouts/footer', background_color: 'black' %>
   </div>
 </body>
-
-</html>

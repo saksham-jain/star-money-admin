@@ -3,11 +3,11 @@
     <div class="page-header login-page-header clear-filter" style="position: absolute;height: 100%;width: 100%;" %>">
       <div class="page-header-image" style="background-image:url(../assets/login7.jpg)"></div>
       <div class="content">
-        <div class="card card-login card-plain">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="card-body" style='margin-top:5vh'>
+        <div class="card card-signup card-plain">
+          <%= form_for(@client, url: confirm_activate_path) do |f| %>
+            <div class="card-body">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <%= f.label :reliance_client_code, 'User ID' %>
                   <div class="input-group no-border">
                     <div class="input-group-prepend">
@@ -18,9 +18,20 @@
                     <%= f.text_field :reliance_client_code, autofocus: true, autocomplete: "reliance_client_code", class: 'form-control' %>
                   </div>
                 </div>
+                  <div class="col-md-6">
+                  <%= f.label :email %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <%= f.text_field :email, class: 'form-control' %>
+                  </div>
+                </div>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <%= f.label :password %>
                   <div class="input-group no-border">
                     <div class="input-group-prepend">
@@ -28,7 +39,18 @@
                         <i class="fas fa-key"></i>
                       </span>
                     </div>
-                    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+                    <%= f.password_field :password, class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <%= f.label :confirm_password %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                      </span>
+                    </div>
+                    <%= f.password_field :confirm_password, class: 'form-control' %>
                   </div>
                 </div>
               </div>
@@ -36,7 +58,7 @@
               <%= f.submit 'Get Started', class: 'btn btn-primary btn-round btn-lg btn-block' %>
                 <div class="pull-left">
                   <h6>
-                    <a href="/activate" class="link">Create Account</a>
+                    <a href="/clients/sign_in" class="link">Already Signed up?</a>
                   </h6>
                 </div>
                 <div class="pull-right">

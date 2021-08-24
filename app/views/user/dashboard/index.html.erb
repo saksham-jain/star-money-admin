@@ -41,12 +41,11 @@
       </div>
       <hr class='hr-style'>
       <%= render 'ipo' %>
-      <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
-      <%= render 'user/shared/tickertape' %>
+      <hr class='hr-style'>
 
-      <% if current_client %>
-        <%= render 'user/clients/trades', trades: @trades %>
-      <% end %>
+      <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
+      
+      <%= render 'user/shared/tickertape' %>
 
       <%= render 'chart' %>
 
