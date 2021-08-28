@@ -37,8 +37,8 @@ class TradeDatatable < AjaxDatatablesRails::ActiveRecord
         scrip: record.scrip,
         price: record.price,
         quantity: record.quantity,
-        time: record.time,
-        date: record.date,
+        time: Time.at(record.time.to_i).strftime("%H:%M:%S"),
+        date: record.date.to_date.strftime("%d/%m/%Y"),
         platform: record.platform
       }
     end

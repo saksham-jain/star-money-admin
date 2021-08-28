@@ -16,4 +16,12 @@ module ApplicationHelper
       flash_messages << text.html_safe if message
     end.join("\n").html_safe
   end
+
+  def convert_time seconds
+    Time.at(seconds).strftime("%H:%M:%S")
+  end
+
+  def convert_date date
+    date.strftime("%d/%m/%Y")
+  end
 end

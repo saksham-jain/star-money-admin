@@ -29,8 +29,8 @@
                       <td><%= link_to trade.scrip, 'javascript::;', onclick: "getQuote('#{trade.scrip.split('-').first}')" %></td>
                       <td><%= trade.price %></td>
                       <td><%= trade.quantity %></td>
-                      <td><%= trade.time %></td>
-                      <td><%= trade.date %></td>
+                      <td><%= convert_time(trade.time.to_i) %></td>
+                      <td><%= convert_date(trade.date.to_date) %></td>
                     </tr>
                   <% end %>
                 </tbody>
