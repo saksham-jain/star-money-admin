@@ -35,12 +35,14 @@
         </div>
         <hr class='hr-style'>
 
-        <div class="row">
+        <div class="row" id='ipos'>
           <%= render 'top_traded_scrip', top_traded_scrips: @top_traded_scrips %>
         </div>
       </div>
       <hr class='hr-style'>
-      <%= render 'ipo' %>
+      <div>
+        <%= render 'ipo' %>
+      </div>
       <hr class='hr-style'>
 
       <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
