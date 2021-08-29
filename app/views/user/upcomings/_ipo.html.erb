@@ -21,7 +21,7 @@
               </thead>
               <tbody>
                 <% @ipos.each do |scrip| %>
-                  <tr style="background-color: <%= scrip[:open_now] == true ? 'lightgreen' : 'white' %>">
+                  <tr style="background-color: <%= get_color_class(scrip[:status]) %>">
                     <td><%= scrip[:name] %></td>
                     <td><%= scrip[:exchange] %></td>
                     <td><%= scrip[:open] %></td>
@@ -33,6 +33,7 @@
                 <% end %>
               </tbody>
             </table>
+            <%= will_paginate @ipos, previous_label: 'Previous', next_label: 'Next' %>
           <% else %>
             <div class='center text-danger'>
               No uncoming IPO

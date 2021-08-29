@@ -24,4 +24,12 @@ module ApplicationHelper
   def convert_date date
     date.strftime("%d/%m/%Y")
   end
+
+  def get_color_class status
+    case status
+    when 'open' then 'lightgreen'
+    when 'close' then '#FF7F7F'
+    else 'lightblue'
+    end
+  end
 end

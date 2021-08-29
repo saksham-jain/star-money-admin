@@ -534,3 +534,67 @@
   font-weight: bolder;
 }
 
+.demat-button{
+  margin-top: 100px;
+  margin-left: -70px;
+}
+
+.mf-button{
+  position: absolute;
+  right: 0;
+  margin-right: -70px;
+}
+
+
+.typewriter {
+  white-space: nowrap;
+  overflow: hidden;    
+  font-size: 16px;
+}
+
+/* Animation */
+.typewriter {
+  animation: animated-text 600ms steps(29,end) 1s 1 normal both,
+    animated-cursor 100ms steps(20,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 300px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+
+.typewriter-negative {
+  white-space: nowrap;
+  overflow: hidden;    
+  font-size: 16px;
+}
+
+/* Animation */
+.typewriter-negative {
+  animation: animated-text-reverse 600ms steps(29,end) 1.5s 1 normal both,
+    animated-cursor-reverse 100ms steps(20,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text-reverse{
+  from{width: 0;}
+  to{width: 300px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor-reverse{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+
