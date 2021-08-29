@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :dashboard, only: :index
     resources :downloads, only: :index
     resources :queries
+    resources :upcomings, only: :index
   end
 end

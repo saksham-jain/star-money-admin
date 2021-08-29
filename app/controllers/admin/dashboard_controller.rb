@@ -13,7 +13,7 @@ class Admin::DashboardController < ApplicationController
     <<-SQL
       SELECT client_id, client_name, count(*) as trades, sum(price*quantity) as total_trade_value 
       FROM trades 
-      WHERE created_at::date = '#{Time.now.to_date.to_s}'
+      WHERE date::date = '#{Time.now.to_date.to_s}'
       GROUP BY client_id, client_name
     SQL
   end
