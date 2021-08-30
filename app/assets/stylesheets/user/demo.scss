@@ -536,7 +536,6 @@
 
 .demat-button{
   margin-top: 100px;
-  margin-left: -70px;
 }
 
 .mf-button{
@@ -547,6 +546,7 @@
 
 
 .typewriter {
+  color: black;
   white-space: nowrap;
   overflow: hidden;    
   font-size: 16px;
@@ -554,8 +554,8 @@
 
 /* Animation */
 .typewriter {
-  animation: animated-text 600ms steps(29,end) 1s 1 normal both,
-    animated-cursor 100ms steps(20,end) infinite;
+  animation: animated-text 1000ms steps(29,end) 1s 1 normal both,
+    animated-cursor 6000ms steps(20,end) infinite;
 }
 
 /* text animation */
@@ -568,7 +568,7 @@
 /* cursor animations */
 
 @keyframes animated-cursor{
-  from{border-right-color: rgba(0,255,0,.75);}
+  from{border-right-color: rgba(15, 15, 15, 0.75);}
   to{border-right-color: transparent;}
 }
 

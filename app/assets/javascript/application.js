@@ -4,7 +4,8 @@
 //= require popper
 //= require_tree ./user
 //= require toastr
-// = require turbolinks
+//= require turbolinks
+//= require typed
 
 toastr.options = {
   toastClass: 'alert',
@@ -20,4 +21,14 @@ toastr.options = {
 
 $(document).on('turbolinks:load', function(){
   $('.pagination > a').attr('data-remote', 'true');
+
+  if ($(".text-slider").length == 1) {
+    typed = new Typed(".text-slider", {
+      strings: ["Stocks.", "Futures and Options.", "Mutual Funds.", 'SIPs.', 'Commodities.'],
+      typeSpeed: 60,
+      loop: true,
+      backSpeed: 25,
+      backDelay: 1500
+    });
+    }
 })
