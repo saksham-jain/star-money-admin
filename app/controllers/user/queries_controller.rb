@@ -6,9 +6,14 @@ class User::QueriesController < ApplicationController
   end
 
   def create
-    Query.create(query_params)
-    flash.now[:success] = 'Your Query has been registered. You will be contacted soon if required'
-    redirect_to root_path
+    @query = Query.new(query_params)
+    if @query.save
+      flash[:success] = 'Your Query has been registered. You will be contacted soon if required'
+      redirect_to root_path
+    else
+      flash.now[:warning] = @query.errors.full_messages.join(",")
+      render :new
+    end
   end
 
   private

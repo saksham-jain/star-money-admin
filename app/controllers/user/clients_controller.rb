@@ -10,8 +10,15 @@ class User::ClientsController < ApplicationController
   end
 
   def confirm_activate
-    client = Client.find_by(reliance_client_code: client_params[:reliance_client_code], email: client_params[:email])
-    if client && check_password
+    client = Client.find_by(reliance_client_id: client_params[:reliance_client_id], email: client_params[:email])
+
+    unless client_params[:password] == client_params[:confirm_password]
+      @client = Client.new(client_params.except(:confirm_password))
+      flash.now[:warning] = 'Password and confirm Password does not match'
+      render :activate and return
+    end
+
+    if client
       client.update(password: client_params[:password], activated: true)
     else
       @client = Client.new(client_params.except(:confirm_password))
@@ -25,10 +32,6 @@ class User::ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:reliance_client_code, :email, :password, :confirm_password)
-  end
-  
-  def check_password
-    client_params[:password] == client_params[:confirm_password]
+    params.require(:client).permit(:reliance_client_id, :email, :password, :confirm_password)
   end
 end

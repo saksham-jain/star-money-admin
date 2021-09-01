@@ -12,6 +12,7 @@ $(document).on('turbolinks:load', function() {
     "pagingType": "full_numbers",
     "columns": [
       {"data": "reliance_client_code"},
+      {"data": "reliance_client_id"},
       {"data": "starmf_client_code"},
       {"data": "nj_client_code"},
       {"data": "full_name"},

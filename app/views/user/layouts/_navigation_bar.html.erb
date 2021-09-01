@@ -8,7 +8,7 @@
           <a class="navbar-brand" href="/profile" rel="tooltip" title="You are awesome" data-placement="bottom" data-turbolinks="false">
             <h5>
               Hi <i class="fa fa-smile-o" aria-hidden="true"></i>
-              <%= current_client.first_name %>
+              <%= "#{current_client.first_name.split('(').first}(#{current_client.reliance_client_id})" %>
             </h5>
           </a>
           <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

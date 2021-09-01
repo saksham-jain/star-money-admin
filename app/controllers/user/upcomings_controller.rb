@@ -16,7 +16,7 @@ class User::UpcomingsController < ApplicationController
         open = row.css('td')[2].text
         close = row.css('td')[3].text
         status = 
-          if open.present? && (open.to_date <= Time.zone.now) && close.present? && (close.to_date >= Time.zone.now)
+          if open.present? && (open.to_date <= Time.zone.now.to_date) && close.present? && (close.to_date >= Time.zone.now.to_date)
             'open'
           elsif close.present? && (close.to_date < Time.zone.now)
             'close'

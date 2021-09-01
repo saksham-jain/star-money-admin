@@ -10,10 +10,10 @@ class User::Clients::SessionsController < Devise::SessionsController
   
   # POST /resource/sign_in
   def create
-    client = Client.find_by(reliance_client_code: params[:client][:reliance_client_code])
+    client = Client.find_by(reliance_client_id: params[:client][:reliance_client_id])
     redirect_to new_client_session_path, flash: { warning: 'Please enter valid User Id' } and return unless client
 
-    unless Client.find_by(reliance_client_code: params[:client][:reliance_client_code]).activated?
+    unless Client.find_by(reliance_client_id: params[:client][:reliance_client_id]).activated?
       flash[:warning] = 'You have not signed up. Please SignUp before login'
       redirect_to new_client_session_path and return
     end

@@ -29,7 +29,7 @@ module ApplicationHelper
     case status
     when 'open' then 'lightgreen'
     when 'close' then '#FF7F7F'
-    else 'lightblue'
+    else '#FFBF00'
     end
   end
 end

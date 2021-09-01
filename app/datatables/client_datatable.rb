@@ -11,6 +11,7 @@ class ClientDatatable < AjaxDatatablesRails::ActiveRecord
   def view_columns
     @view_columns ||= {
       reliance_client_code: { source: "Client.reliance_client_code" },
+      reliance_client_id: { source: "Client.reliance_client_id" },
       starmf_client_code: { source: "Client.starmf_client_code" },
       nj_client_code: { source: "Client.nj_client_code" },
       full_name: { source: "Client.first_name" },
@@ -28,6 +29,7 @@ class ClientDatatable < AjaxDatatablesRails::ActiveRecord
     records.map do |record|
       {
         reliance_client_code: link_to(record.reliance_client_code, admin_client_path(record.reliance_client_code)),
+        reliance_client_id: link_to(record.reliance_client_id, admin_client_path(record.reliance_client_code)),
         starmf_client_code: record.starmf_client_code,
         nj_client_code: record.nj_client_code,
         full_name: record.first_name.split('(').first,

@@ -2,8 +2,8 @@ class Client < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable,  and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, authentication_keys: [:reliance_client_code],
-         strip_whitespace_keys: [:reliance_client_code]
+         :recoverable, :rememberable, :trackable, authentication_keys: [:reliance_client_id],
+         strip_whitespace_keys: [:reliance_client_id]
          
   attr_accessor :full_name
   validates :reliance_client_code, presence: true

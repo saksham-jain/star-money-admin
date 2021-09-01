@@ -4,29 +4,30 @@
       <div class="page-header-image" style="background-image:url(../assets/login7.jpg)"></div>
       <div class="content">
         <div class="card card-signup card-plain">
+          <h4 style='color: lightblue'>Enter your Reliance UserId and linked EmailId to complete signup</h4 style='color: lightblue'>
           <%= form_for(@client, url: confirm_activate_path) do |f| %>
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
-                  <%= f.label :reliance_client_code, 'User ID' %>
+                  <%= f.label :reliance_client_id, 'Reliance User Id' %>
                   <div class="input-group no-border">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="fas fa-id-card-alt"></i>
                       </span>
                     </div>
-                    <%= f.text_field :reliance_client_code, autofocus: true, autocomplete: "reliance_client_code", class: 'form-control' %>
+                    <%= f.text_field :reliance_client_id, autofocus: true, autocomplete: "reliance_client_id", class: 'form-control', required: true %>
                   </div>
                 </div>
                   <div class="col-md-6">
-                  <%= f.label :email %>
+                  <%= f.label :email, 'Linked Email Id' %>
                   <div class="input-group no-border">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                       </span>
                     </div>
-                    <%= f.text_field :email, class: 'form-control' %>
+                    <%= f.text_field :email, class: 'form-control', required: true %>
                   </div>
                 </div>
               </div>
@@ -39,7 +40,7 @@
                         <i class="fas fa-key"></i>
                       </span>
                     </div>
-                    <%= f.password_field :password, class: 'form-control' %>
+                    <%= f.password_field :password, class: 'form-control', required: true %>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -50,7 +51,7 @@
                         <i class="fas fa-key"></i>
                       </span>
                     </div>
-                    <%= f.password_field :confirm_password, class: 'form-control' %>
+                    <%= f.password_field :confirm_password, class: 'form-control', required: true %>
                   </div>
                 </div>
               </div>

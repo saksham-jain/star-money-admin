@@ -6,7 +6,7 @@ class Admin::DashboardController < ApplicationController
 
     @clients = Client.all
 
-    @top_traded_scrip = @trades.group(:scrip).count.sort_by { |k, v| -v}.first(5)
+    @top_traded_scrip = @trades.group(:scrip).count.sort_by { |k, v| -v}.first(10)
   end
 
   def sql_raw_query_for_client_wise_trade

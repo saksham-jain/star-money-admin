@@ -112,6 +112,11 @@
                       <tbody>
                         <tr></tr>
                         <tr>
+                          <th>Signed Up by Client</th>
+                          <td><%= @client.activated? ? 'Yes' : 'No' %></td>
+                        </tr>
+
+                        <tr>
                           <th>Demat Number</th>
                           <td><%= @client.demat_number || '-' %></td>
                         </tr>
