@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     resources :downloads, only: :index
     resources :queries
     resources :upcomings, only: :index
+    resource :invest_now, only: :create
   end
 end

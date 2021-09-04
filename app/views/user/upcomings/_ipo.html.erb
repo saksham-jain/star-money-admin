@@ -1,7 +1,7 @@
 <div class="col-lg-12 col-sm-12">
   <div class="card">
     <div class="card-header card-header-info">
-      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Uncoming Exciting IPOs</h5>
+      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Upcoming Exciting IPOs</h5>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -33,7 +33,7 @@
                 <% end %>
               </tbody>
             </table>
-            <%= will_paginate @ipos, previous_label: 'Previous', next_label: 'Next' %>
+            <%= will_paginate @ipos, param_name: 'ipo_page', previous_label: 'Previous', next_label: 'Next' %>
           <% else %>
             <div class='center text-danger'>
               No uncoming IPO

@@ -1,0 +1,37 @@
+<div class="modal" id="invest_now">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <%= form_with model: InvestNow.new, url: invest_now_path do |f| %>
+        <div class="modal-body">
+          <div class='row'>
+            <div class='col-lg-6'>
+              <%= f.label :first_name %><span class='text-danger'>*</span>
+              <%= f.text_field :first_name, class: 'form-control', maxlength: 10 %>
+            </div>
+            <div class='col-lg-6'>
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-lg-6'>
+              <%= f.label :phone_number %><span class='text-danger'>*</span>
+              <%= f.text_field :phone_number, class: 'form-control number-field', maxlength: 10 %>
+            </div>
+            <div class='col-lg-6'>
+              <%= f.label :email %><span class='text-danger'>*</span>
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Submit', class: 'btn btn-success' %>
+          <%= link_to 'Close', "javascript:investNow()",class: 'btn btn-danger' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

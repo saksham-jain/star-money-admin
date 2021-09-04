@@ -1,0 +1,52 @@
+<div class="col-lg-12 col-sm-12">
+  <div class="card">
+    <div class="card-header card-header-info">
+      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Upcoming NFOs(New Fund Offers)</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+          <% if @nfos.present? %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Open</th>
+                  <th>Close</th>
+                  <th>Offer Price</th>
+                  <th>Minimum Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @nfos.each do |nfo| %>
+                  <tr style="background-color: <%= get_color_class(nfo[:status]) %>">
+                    <td><%= nfo[:name] %></td>
+                    <td><%= nfo[:open] %></td>
+                    <td><%= nfo[:close] %></td>
+                    <td><%= nfo[:offer_price] %></td>
+                    <td><%= nfo[:min_amount] %></td>
+                    <td><%= link_to nfo[:status] == 'open' ? 'Invest Now' : 'Enquire', "javascript:investNow('#{nfo[:name]}', '#{nfo[:status]}')", class: 'text-info' %></td>
+                  </tr> 
+                <% end %>
+              </tbody>
+            </table>
+            <%= will_paginate @nfos, param_name: 'nfo_page', previous_label: 'Previous', next_label: 'Next' %>
+          <% else %>
+            <div class='center text-danger'>
+              No uncoming NFO
+              </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'invest_now_form' %>
+
+<script>
+function investNow(nfoName, nfoStatus){
+  $('#invest_now').toggle();
+  var modalTitle = nfoStatus == 'open' ? 'Complete first step of investing in' : 'Enquire about'
+  $('.modal-title').html(`${modalTitle} <b>${nfoName}</b>`);
+}
+</script>
