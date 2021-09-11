@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_client!, if: :user_site? 
   before_action :authenticate_admin_admin_user!, if: :admin_site?
-  before_action :set_visitor_cookie, if: :user_dashboard_page?
+  before_action :set_visitor_cookie, if: -> { user_dashboard_page? && !cron_request? }
   layout :layout
 
   def layout
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
 
   def user_dashboard_page?
     request.env['PATH_INFO'] == '/'
+  end
+
+  def cron_request?
+    params[:request_type] == 'cron'
   end
 
   def set_visitor_cookie
