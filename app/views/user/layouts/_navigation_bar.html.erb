@@ -6,12 +6,12 @@
       <div class="container">
         <div class="navbar-translate">
           <a class="navbar-brand" href="/profile" rel="tooltip" title="You are awesome" data-placement="bottom" data-turbolinks="false">
-            <h5>
+            <h5 class='a'>
               Hi <i class="fa fa-smile-o" aria-hidden="true"></i>
               <%= "#{current_client.first_name.split('(').first}(#{current_client.reliance_client_id})" %>
             </h5>
           </a>
-          <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler navbar-toggler position-manual" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar top-bar"></span>
             <span class="navbar-toggler-bar middle-bar"></span>
             <span class="navbar-toggler-bar bottom-bar"></span>
@@ -93,5 +93,13 @@
       var id = `${$(this).attr('data')}`
       setTimeout(function(){document.location.href = id}, 200);
     })
+
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 10) {
+        $('.a').css('visibility', 'hidden');
+      } else {
+        $('.a').css('visibility', 'initial');
+      }
+    });
   </script>
   

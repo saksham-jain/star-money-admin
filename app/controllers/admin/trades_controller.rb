@@ -9,7 +9,7 @@ class Admin::TradesController < ApplicationController
   def bulk_upload
     return unless params[:commit] == 'Submit'
     
-    Trade.import(params[:file])
-    redirect_to admin_trades_path
+    client_ids_not_present = Trade.import(params[:file])
+    redirect_to admin_trades_path, notice: "Please create these clients: #{client_ids_not_present.join(', ')}"
   end
 end

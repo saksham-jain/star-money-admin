@@ -24,6 +24,7 @@ class Client < ApplicationRecord
       client = find_by(reliance_client_code: row["reliance_client_code"]) || new
       client.attributes = row.compact.to_hash.slice(*row.to_hash.keys)
       client.password = 'client@123' unless client.persisted?
+      byebug
       client.save!
     end
   end

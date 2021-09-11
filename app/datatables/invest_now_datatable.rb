@@ -7,7 +7,8 @@ class InvestNowDatatable < AjaxDatatablesRails::ActiveRecord
       first_name: { source: "InvestNow.first_name" },
       last_name: { source: "InvestNow.last_name" },
       phone_number: { source: "InvestNow.phone_number" },
-      email: { source: "InvestNow.email" }
+      email: { source: "InvestNow.email" },
+      request_for: { source: "InvestNow.request_for" }
     }
   end
 
@@ -17,7 +18,8 @@ class InvestNowDatatable < AjaxDatatablesRails::ActiveRecord
         first_name: record.first_name,
         last_name: record.last_name,
         phone_number: record.phone_number,
-        email: record.email
+        email: record.email,
+        request_for: record.request_for
       }
     end
   end

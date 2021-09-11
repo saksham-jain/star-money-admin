@@ -1,8 +1,8 @@
 class User::ClientsController < ApplicationController
   def show
-    @trades = current_client.trades.last_60_days.paginate(page: params[:page], per_page: 7)
-    @message = 'Try your hand on trading' if @trades.count == 0 
-    @message = 'Wow! Its nice to You have been actively trading in last 7 days' if @trades.count > 5 
+    @trades = current_client.trades&.last_60_days&.paginate(page: params[:page], per_page: 7)
+    @message = 'Try your hand on trading' if @trades.present? && @trades.count == 0 
+    @message = 'Wow! Its nice to You have been actively trading in last 7 days' if @trades.present? && @trades.count > 5 
   end 
   
   def activate

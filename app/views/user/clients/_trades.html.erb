@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <%= will_paginate trades %>
+    <%= will_paginate trades, previous_label: 'Previous', next_label: 'Next' %>
   </div>
 </div>
 <%= render 'user/shared/tickertape' %>

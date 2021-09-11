@@ -1,0 +1,70 @@
+<body class="index-page sidebar-collapse">
+  
+  <div class="wrapper">
+    <div class="page-header clear-filter" filter-color="orange">
+
+      <%= render 'user/header' %>
+
+      <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/stock-market.web');">
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          
+ <%
+=begin%>
+ <h3>Open Free Reliance Securities Demat Account Now</h3>  
+<%
+=end%>
+        </div>
+        <div class="content-center brand field" style= 'margin-top: 130px;'>
+          <%
+=begin%>
+ <div class="scroll" onclick="scrollToDownload()"></div> 
+<%
+=end%>
+        </div>
+      </div>
+    </div>
+    <div class="main container">
+      <div class='container'>
+        <div class='center'>
+          <%= link_to 'Open new Demat Account with <u><i>Reliance Securities</i></u>'.html_safe, "javascript:investNow('demat')", class: 'btn dashboard-button' %>
+        </div>
+        <div class='center'>
+          <%= link_to 'Start new <u><i>Mutual Fund</i></u> Investment'.html_safe, "javascript:investNow('mutual_fund')", class: 'btn dashboard-button' %>
+        </div>
+      </div>
+      <div class="container" style='margin-bottom: 20%; margin-top: 5%'>
+        <h3>About Vineet Jain</h3>
+
+        <b>Shri Vineet Jain</b> was the son of <b>Lt Shri Pandit Bansidhar Kothia</b> who was a renowned Freedom Fighter during India’s Independence struggle. Pt Bansidhar Kothia was awarded with a Tamrapatra (President’s Honor Award) from the Prime Minister of India (Smt Indira Gandhi).<br/> <br/> 
+        Vineet Jain has been a First Generation Entrepreneur focused on increasing financial awareness within <b>Madhya Pradesh</b> region. He had focused on various campaigns in terms of Financial Planning, Investing, Wealth creation for people of Madhya Pradesh <b>since 2000</b> when there was very little awareness about financial planning. <br/> <br/> He had helped people from rural and marginal background plan their investments and focus on long-term wealth creation. 
+        He had setup <b>Star Money, Bina</b> with a single view of increasing financial literacy and providing a one-stop solution for financial needs of the people. 
+
+        <h3 class='mt-4'>About StarMoney</h3>
+
+        StarMoney caters you variety of investments solution namely <b>Direct Equity Market, F&O, Mutual Funds, SIPs, Commodities.</b><br/><br/>
+        From onboarding to investments we are with you.
+        We always try to understand the actual goal of investors and their time horizon. On the basis of these information we guide you through the paths you can follow to achieve your goal.
+      </div>
+
+    </div>
+      <div class="section" data-background-color="black">
+        <div class="row justify-content-md-center sharing-area text-center">
+          <div class="text-center col-md-12 col-lg-8">
+            <h3>Thank you for supporting us!</h3>
+          </div>
+          <div class="text-center col-md-12 col-lg-8">
+            <a target="_blank" href="https://chat.whatsapp.com/JF0wOMs0OOsK6dex711osa" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Join Star Money Group">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+  <%= render 'user/layouts/footer', background_color: 'black' %>
+  </div>
+
+</body>
+
+</html>

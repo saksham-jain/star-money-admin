@@ -13,6 +13,6 @@ class User::InvestNowsController < ApplicationController
   private
 
   def invest_now_params
-    params.require(:invest_now).permit(:first_name, :last_name, :phone_number, :email)
+    params.require(:invest_now).permit(:first_name, :last_name, :phone_number, :email, :request_for)
   end
 end

@@ -48,5 +48,6 @@ function investNow(nfoName, nfoStatus){
   $('#invest_now').toggle();
   var modalTitle = nfoStatus == 'open' ? 'Complete first step of investing in' : 'Enquire about'
   $('.modal-title').html(`${modalTitle} <b>${nfoName}</b>`);
+    $('<input>', { type: 'hidden', name: 'invest_now[request_for]', value: nfoName }).appendTo('form');
 }
 </script>

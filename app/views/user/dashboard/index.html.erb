@@ -2,11 +2,8 @@
   
   <div class="wrapper">
     <div class="page-header clear-filter" filter-color="orange">
-    
-      <div class='container mt-auto' style='font-size: 30px'>
-        <span style='font-size: 25px'>Smart way to invest in <br></span>
-        <strong class="text-slider"></strong>
-      </div>
+
+      <%= render 'user/header' %>
 
       <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/stock-market.web');">
       </div>
@@ -29,7 +26,14 @@
       </div>
     </div>
     <div class="main container">
-
+      <div class='container'>
+        <div class='center'>
+          <%= link_to 'Open new Demat Account with <u><i>Reliance Securities</i></u>'.html_safe, "javascript:investNow('demat')", class: 'btn dashboard-button' %>
+        </div>
+        <div class='center'>
+          <%= link_to 'Start new <u><i>Mutual Fund</i></u> Investment'.html_safe, "javascript:investNow('mutual_fund')", class: 'btn dashboard-button' %>
+        </div>
+      </div>
       <div class="container mt-3">
         <div class="row">
           <div id='top-gainers' style='display: contents;'>
@@ -113,6 +117,7 @@
         </div>
       </div>
     </div>
+  <%= render 'user/upcomings/invest_now_form' %>
   <%= render 'user/layouts/footer', background_color: 'black' %>
   </div>
   <!--   Core JS Files   -->
@@ -122,11 +127,44 @@
     });
     window.scEmbedController.load()
 
-
     $('.scroll').click(function(){
       var element = document.querySelector("#ipo");
       element.scrollIntoView({ behavior: 'smooth'});
     })
+
+    function investNow(requestFor){
+      $('#invest_now').toggle();
+      var modalTitle = `Please provide following details to start opening new <b>${humanize(requestFor)}</b>`
+      $('.modal-title').html(`${modalTitle}`);
+      $('<input>', { type: 'hidden', name: 'invest_now[request_for]', value: requestFor }).appendTo('form');
+    }
+
+    function humanize(str) {
+      var i, frags = str.split('_');
+      for (i=0; i<frags.length; i++) {
+        frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
+      }
+      return frags.join(' ');
+    }
+
+    $(document).ready(function() {
+      $('.number-field').keypress(function (event) {
+        return isNumber(event, this)
+      });
+    });
+
+    function isNumber(evt, element) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+
+      if (
+        (charCode < 48 || charCode > 57)) {
+          return false;
+      }
+
+      return true;
+    };
+
+
   </script>
 
 </body>

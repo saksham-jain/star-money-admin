@@ -20,12 +20,16 @@ class Trade < ApplicationRecord
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = ['exchange', 'actionee', 'client_id', 'client_name', 'order_type', 'transaction_type', 'scrip', 'price', 'quantity', 'time', 'date', 'platform']
+    client_ids_not_present = []
     (1..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       trade = new
+      client = Client.find_by(reliance_client_code: row["client_id"])
+      client_ids_not_present.push(row["client_id"]) && next unless client.present?
       trade.attributes = row.compact.to_hash.slice(*row.to_hash.keys)
       trade.save!
     end
+    client_ids_not_present.uniq
   end
 
   def self.open_spreadsheet(file)
