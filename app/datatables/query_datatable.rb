@@ -8,7 +8,8 @@ class QueryDatatable < AjaxDatatablesRails::ActiveRecord
       full_name: { source: "Query.full_name" },
       phone: { source: "Query.phone" },
       email: { source: "Query.email" },
-      reason: { source: "Query.reason" }
+      reason: { source: "Query.reason" },
+      description: { source: "Query.description" }
     }
   end
 
@@ -19,7 +20,8 @@ class QueryDatatable < AjaxDatatablesRails::ActiveRecord
         full_name: record.full_name,
         phone: record.phone,
         email: record.email,
-        reason: record.reason
+        reason: record.reason,
+        description: record.description
       }
     end
   end

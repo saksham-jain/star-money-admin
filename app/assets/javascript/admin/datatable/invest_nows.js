@@ -1,18 +1,16 @@
 $(document).on('turbolinks:load', function() {
-  $('#queries-datatable').dataTable({
+  $('#invest-nows-datatable').dataTable({
     "processing": true,
     "serverSide": true,
     "ajax": {
-      "url": $('#queries-datatable').data('source')
+      "url": $('#invest-nows-datatable').data('source')
     },
     "pagingType": "full_numbers",
     "columns": [
-      {"data": "id"},
-      {"data": "full_name"},
-      {"data": "phone"},
-      {"data": "email"},
-      {"data": "reason"},
-      {"data": "description"}
+      {"data": "first_name"},
+      {"data": "last_name"},
+      {"data": "phone_number"},
+      {"data": "email"}
     ]
     // pagingType is optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about

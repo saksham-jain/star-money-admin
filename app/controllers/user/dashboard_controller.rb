@@ -11,7 +11,7 @@ class User::DashboardController < ApplicationController
   private
 
   def get_top_gainers
-    if request.xhr? || (Time.zone.now > Time.zone.parse('15:30'))
+    if request.xhr? || (Time.zone.now > Time.zone.parse('15:30')) || Time.zone.now.on_weekend?
       Rails.cache.fetch('top_gainers')  { scrap_top_gainers }
     else
       result = scrap_top_gainers
@@ -34,7 +34,7 @@ class User::DashboardController < ApplicationController
   end
 
   def get_top_losers
-    if request.xhr? || (Time.zone.now > Time.zone.parse('15:30'))
+    if request.xhr? || (Time.zone.now > Time.zone.parse('15:30')) || Time.zone.now.on_weekend?
       Rails.cache.fetch('top_losers')  { scrap_top_losers }
     else
       result = scrap_top_losers
