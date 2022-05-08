@@ -30,6 +30,8 @@ class Trade < ApplicationRecord
       trade.save!
     end
     client_ids_not_present.uniq
+  rescue => e
+    Rails.logger.info "#{e.message}"
   end
 
   def self.open_spreadsheet(file)

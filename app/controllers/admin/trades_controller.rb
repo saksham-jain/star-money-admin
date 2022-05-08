@@ -10,6 +10,8 @@ class Admin::TradesController < ApplicationController
     return unless params[:commit] == 'Submit'
     
     client_ids_not_present = Trade.import(params[:file])
-    redirect_to admin_trades_path, notice: "Please create these clients: #{client_ids_not_present.join(', ')}"
+    message = client_ids_not_present.present? ? "Please create these clients: #{client_ids_not_present.join(', ')}" : 
+      "All trades successfully created!"
+    redirect_to admin_trades_path, notice: message
   end
 end
