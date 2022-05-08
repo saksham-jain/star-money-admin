@@ -36,6 +36,6 @@ class Admin::ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:reliance_client_code, :first_name, :last_name, :phone_number, :email, :pan, :city)
+    params.require(:client).permit(:reliance_client_code, :reliance_client_id, :first_name, :last_name, :phone_number, :email, :pan, :city)
   end
 end

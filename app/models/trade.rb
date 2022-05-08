@@ -23,11 +23,9 @@ class Trade < ApplicationRecord
     client_ids_not_present = []
     (1..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      trade = new
       client = Client.find_by(reliance_client_code: row["client_id"])
       client_ids_not_present.push(row["client_id"]) && next unless client.present?
-      trade.attributes = row.compact.to_hash.slice(*row.to_hash.keys)
-      trade.save!
+      Trade.find_or_create_by(row.compact.to_hash.slice(*row.to_hash.keys))
     end
     client_ids_not_present.uniq
   rescue => e
