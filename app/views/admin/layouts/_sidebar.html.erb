@@ -1,0 +1,53 @@
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          STAR MONEY
+          <br/>
+          <%= "#{current_admin_admin_user.full_name}" %> <br/>
+          <%= "#{current_admin_admin_user.role.name}" %>
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item <%= params[:controller] == 'admin/dashboard' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/dashboard">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item  <%= params[:controller] == 'admin/clients' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/clients">
+              <i class="material-icons">group</i>
+              <p>Clients</p>
+            </a>
+          </li>
+          <li class="nav-item  <%= params[:controller] == 'admin/trades' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/trades">
+              <i class="material-icons">pending_actions</i>
+              <p>Reliance Trades</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/admin/queries">
+              <i class="fa fa-question-circle" aria-hidden="true"></i>
+              <p>Client Queries</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/invest_nows">
+              <i class="material-icons">bubble_chart</i>
+              <p>Invest Now / Enquire</p>
+            </a>
+          </li>
+          <li class="nav-item active-pro ">
+            <a class="nav-link" href="./upgrade.html">
+              <i class="material-icons">unarchive</i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>

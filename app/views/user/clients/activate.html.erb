@@ -1,0 +1,79 @@
+<body class=" sidebar-collapse">
+  <div class="login-page sidebar-collapse">
+    <div class="page-header login-page-header clear-filter" style="position: absolute; padding-top: 30px;height: 140%;width: 100%;">
+      <div class="page-header-image" style="background-image:url(../assets/login7.jpg)"></div>
+      <div class="content">
+        <div class="card card-signup card-plain">
+          <h4 style='color: lightblue'>Enter your Reliance UserId and linked EmailId to complete signup</h4 style='color: lightblue'>
+          <%= form_for(@client, url: confirm_activate_path) do |f| %>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.label :reliance_client_id, 'Reliance User Id' %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-id-card-alt"></i>
+                      </span>
+                    </div>
+                    <%= f.text_field :reliance_client_id, autofocus: true, autocomplete: "reliance_client_id", class: 'form-control', required: true %>
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                  <%= f.label :email, 'Linked Email Id' %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <%= f.text_field :email, class: 'form-control', required: true %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.label :password %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                      </span>
+                    </div>
+                    <%= f.password_field :password, class: 'form-control', required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <%= f.label :confirm_password %>
+                  <div class="input-group no-border">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                      </span>
+                    </div>
+                    <%= f.password_field :confirm_password, class: 'form-control', required: true %>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-center">
+              <%= f.submit 'Get Started', class: 'btn btn-primary btn-round btn-lg btn-block' %>
+                <div class="pull-left">
+                  <h6>
+                    <a href="/clients/sign_in" class="link">Already Signed up?</a>
+                  </h6>
+                </div>
+                <div class="pull-right">
+                  <h6>
+                    <a href="/queries/new" class="link">Need Help?</a>
+                  </h6>
+                </div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%= render 'user/layouts/footer', background_color: '' %>
+    </div>
+  </div>
+</body>

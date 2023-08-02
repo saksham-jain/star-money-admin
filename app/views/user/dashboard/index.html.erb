@@ -1,0 +1,172 @@
+<body class="index-page sidebar-collapse">
+  
+  <div class="wrapper">
+    <div class="page-header clear-filter" filter-color="orange">
+
+      <%= render 'user/header' %>
+
+      <div class="page-header-image" data-parallax="true" style="background-image:url('./assets/stock-market.web');">
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          
+ <%
+=begin%>
+ <h3>Open Free Reliance Securities Demat Account Now</h3>  
+<%
+=end%>
+        </div>
+        <div class="content-center brand field" style= 'margin-top: 130px;'>
+          <%
+=begin%>
+ <div class="scroll" onclick="scrollToDownload()"></div> 
+<%
+=end%>
+        </div>
+      </div>
+    </div>
+    <div class="main container">
+      <div class='container'>
+        <div class='center'>
+          <%= link_to 'Open new Demat Account with <u><i>Reliance Securities</i></u>'.html_safe, "javascript:investNow('demat')", class: 'btn dashboard-button' %>
+        </div>
+        <div class='center'>
+          <%= link_to 'Start new <u><i>Mutual Fund</i></u> Investment'.html_safe, "javascript:investNow('mutual_fund')", class: 'btn dashboard-button' %>
+        </div>
+      </div>
+      <div class="container mt-3">
+        <div class="row">
+          <div id='top-gainers' style='display: contents;'>
+            <%= render 'top_gainer', top_gainers: @top_gainers %>
+          </div>  
+          <div id='top-losers' style='display: contents;'>
+            <%= render 'top_loser', top_losers: @top_losers %>
+          </div> 
+        </div>
+        <hr class='hr-style'>
+
+        <div class="row">
+          <%= render 'top_traded_scrip', top_traded_scrips: @top_traded_scrips %>
+        </div>
+      </div>
+     
+      </div>
+      <hr class='hr-style'>
+
+      <h3 class='center bold' id='self-analyze'>Self Analyze</h3>
+      
+      <%= render 'user/shared/tickertape' %>
+
+      <%= render 'chart' %>
+
+      <div class="" id="#neft-details-section" data-background-color="black">
+        <%= render 'neft_details' %>
+      </div>
+
+      <div class="section" data-background-color="black">
+        <div class="row justify-content-md-center sharing-area text-center">
+          <div class="text-center col-md-12 col-lg-8">
+            <h3>Thank you for supporting us!</h3>
+          </div>
+          <div class="text-center col-md-12 col-lg-8">
+            <a target="_blank" href="https://chat.whatsapp.com/JF0wOMs0OOsK6dex711osa" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Join Star Money Group">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sart Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Nice Button</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  End Modal -->
+    <!-- Mini Modal -->
+    <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <div class="modal-profile">
+              <i class="now-ui-icons users_circle-08"></i>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>Always have an access to your profile</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link btn-neutral">Back</button>
+            <button type="button" class="btn btn-link btn-neutral" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%= render 'user/upcomings/invest_now_form' %>
+  <%= render 'user/layouts/footer', background_color: 'black' %>
+  </div>
+  <!--   Core JS Files   -->
+  <script>
+    $(document).on(function() {
+      nowuiKit.initSliders();
+    });
+    window.scEmbedController.load()
+
+    $('.scroll').click(function(){
+      var element = document.querySelector("#ipo");
+      element.scrollIntoView({ behavior: 'smooth'});
+    })
+
+    function investNow(requestFor){
+      $('#invest_now').toggle();
+      var modalTitle = `Please provide following details to start opening new <b>${humanize(requestFor)}</b>`
+      $('.modal-title').html(`${modalTitle}`);
+      $('<input>', { type: 'hidden', name: 'invest_now[request_for]', value: requestFor }).appendTo('form');
+    }
+
+    function humanize(str) {
+      var i, frags = str.split('_');
+      for (i=0; i<frags.length; i++) {
+        frags[i] = frags[i].charAt(0).toUpperCase() + frags[i].slice(1);
+      }
+      return frags.join(' ');
+    }
+
+    $(document).ready(function() {
+      $('.number-field').keypress(function (event) {
+        return isNumber(event, this)
+      });
+    });
+
+    function isNumber(evt, element) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+
+      if (
+        (charCode < 48 || charCode > 57)) {
+          return false;
+      }
+
+      return true;
+    };
+
+
+  </script>
+
+</body>
+
+</html>

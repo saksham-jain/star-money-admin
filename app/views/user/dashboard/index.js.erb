@@ -1,0 +1,3 @@
+$('#top-gainers').html("<%= j render 'top_gainer', top_gainers: @top_gainers %>")
+$('#top-losers').html("<%= j render 'top_loser', top_losers: @top_losers %>")
+$('.pagination > a').attr('data-remote', 'true');

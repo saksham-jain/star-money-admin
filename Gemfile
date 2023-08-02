@@ -35,6 +35,13 @@ gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
 gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'roo'
+gem 'ajax-datatables-rails'
+gem 'rest-client'
+gem 'toastr-rails'
+gem 'nokogiri'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'bundle-audit'
@@ -53,7 +60,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.6'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,57 @@
+<div class="container">
+  <h3 class='center bold' id='self-analyze'>Last 60 days Trades</h3>
+  <div class='table'>
+    <div class="row">
+      <div class="container col-12">
+        <h6 class='text-success'>* Tip - Click on Scrip name to get latest Price</h6>
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Exchange</th>
+                    <th>Order Type</th>
+                    <th>Txn Type</th>
+                    <th>Scrip</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% trades.each do |trade| %>
+                    <tr>
+                      <td><%= trade.exchange %></td>
+                      <td><%= trade.order_type %></td>
+                      <td><%= trade.transaction_type %></td>
+                      <td><%= link_to trade.scrip, 'javascript::;', onclick: "getQuote('#{trade.scrip.split('-').first}')" %></td>
+                      <td><%= trade.price %></td>
+                      <td><%= trade.quantity %></td>
+                      <td><%= convert_time(trade.time.to_i) %></td>
+                      <td><%= convert_date(trade.date.to_date) %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= will_paginate trades, previous_label: 'Previous', next_label: 'Next' %>
+  </div>
+</div>
+<%= render 'user/shared/tickertape' %>
+
+<script>
+  function detectMob() {
+    return ( ( window.innerWidth <= 450 ) && ( window.innerHeight <= 800 ) );
+  }
+  function getQuote(scrip){
+    var iframe = document.getElementById('scembed-iframe-0');
+    var cardSize = detectMob() ? 'small' : 'big'
+    iframe.src = `https://www.gateway-tt.in/trade?id=scembed-iframe-0&orderConfig=%5B%7B%22quantity%22%3A10%2C%22ticker%22%3A%22${scrip}%22%7D%5D&cardsize=${cardSize}&withTT=false&withSearch=true'`
+  }
+</script>

@@ -1,0 +1,41 @@
+<div class="content">
+  <div class="container-fluid">
+      <div class="row" style="justify-content: end">
+        <a href="/admin/trades/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+      </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Trades</h4>
+            <p class="card-category">Today</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table" id="trades-datatable" data-source="<%= admin_trades_path(format: :json) %>">
+                <thead class = "text-primary">
+                  <tr>
+                    <th>Exchange</th>
+                    <th>Actionee</th>
+                    <th>ClientID</th>
+                    <th>Client Name</th>
+                    <th>Order Type</th>
+                    <th>Txn Type</th>
+                    <th>Scrip</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Platform</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

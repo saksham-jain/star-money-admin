@@ -1,0 +1,74 @@
+<body class="profile-page sidebar-collapse">
+  <div class="wrapper">
+    <div class="page-header clear-filter page-header-small" filter-color="orange">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('../assets/img/bg8.jpg');">
+      </div>
+      <div class="container">
+        <div class="photo-container">
+          <img src="../assets/img/default-avatar.png" alt="">
+        </div>
+        <h3 class="title"><%= current_client.first_name.split('(').first %></h3>
+        <p class="category">Investor/Trader</p>
+        <p class=""><%= @message %></p>
+      </div>
+    </div>
+    <div class="center">
+      <div class="container">
+        <h3 class="title"><%= "My Details (last updated #{format_datetime(current_client.updated_at)})" %></h3>
+        <div class='table'>
+          <div class="row">
+            <div class="container col-10">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr></tr>
+                        <tr>
+                          <th>Reliance Client Id</th>
+                          <td><%= current_client.reliance_client_id %></td>
+                        </tr>
+
+                        <tr>
+                          <th>Reliance Client Code</th>
+                          <td><%= current_client.reliance_client_code %></td>
+                        </tr>
+
+                        <tr>
+                          <th>First Name</th>
+                          <td><%= current_client.first_name %></td>
+                        </tr>
+
+                        <tr>
+                          <th>Email</th>
+                          <td><%= current_client.email %></td>
+                        </tr>
+
+                        <tr>
+                          <th>Phone</th>
+                          <td><%= current_client.phone_number %></td>
+                        </tr>
+
+                        <tr>
+                          <th>PAN</th>
+                          <td><%= current_client.pan %></td>
+                        </tr>
+
+                        <tr>
+                          <th>City</th>
+                          <td><%= current_client.city %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render 'user/clients/trades', trades: @trades %>
+      </div>
+    </div>
+    <%= render 'user/layouts/footer', background_color: 'black' %>
+  </div>
+</body>

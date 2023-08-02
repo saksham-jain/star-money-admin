@@ -14,6 +14,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require 'csv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -31,5 +32,8 @@ module Railsondocker
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = 'Kolkata'
+    config.i18n.default_locale = :en
   end
 end

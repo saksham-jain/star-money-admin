@@ -1,0 +1,46 @@
+<div class="col-lg-12 col-sm-12">
+  <div class="card">
+    <div class="card-header card-header-info">
+      <h5 class="center mt-3 text-info mb-0 font-italic font-weight-bold">Upcoming Exciting IPOs</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+          <% if @ipos.present? %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Exchange</th>
+                  <th>Open</th>
+                  <th>Close</th>
+                  <th>Lot Size</th>
+                  <th>Issue Price</th>
+                  <th>Issue Size</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% @ipos.each do |scrip| %>
+                  <tr style="background-color: <%= get_color_class(scrip[:status]) %>">
+                    <td><%= scrip[:name] %></td>
+                    <td><%= scrip[:exchange] %></td>
+                    <td><%= scrip[:open] %></td>
+                    <td><%= scrip[:close] %></td>
+                    <td><%= scrip[:lot_size] %></td>
+                    <td><%= scrip[:issue_price] %></td>
+                    <td><%= scrip[:issue_size] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <%= will_paginate @ipos, param_name: 'ipo_page', previous_label: 'Previous', next_label: 'Next' %>
+          <% else %>
+            <div class='center text-danger'>
+              No uncoming IPO
+              </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

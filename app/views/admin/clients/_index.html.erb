@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row" style="justify-content: end">
+      <a href="/admin/clients/new" class="btn btn-primary"><i class="material-icons">person</i>Create New Client</a>
+      <a href="/admin/clients/bulk_upload" class="btn btn-info"><i class="material-icons">upgrade</i>Upload List</a>
+    </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Clients</h4>
+            <p class="card-category"> Registered in Reliance Securities</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table" id="clients-datatable" data-source="<%= admin_clients_path(format: :json) %>">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Reliance Code</th>
+                    <th>Reliance ID</th>
+                    <th>BseStarMF ID</th>
+                    <th>NJ ID</th>
+                    <th>Full Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>PAN</th>
+                    <th>City</th>
+                    <th>Sign in Count</th>
+                    <th>Last Sign in</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

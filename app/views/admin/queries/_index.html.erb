@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row" style="justify-content: end">
+    </div>  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Queries</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table" id="queries-datatable" data-source="<%= admin_queries_path(format: :json) %>">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Reason</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
